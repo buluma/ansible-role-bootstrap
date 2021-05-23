@@ -23,7 +23,7 @@ install:
 
 script:
   - yamllint .
-  - ansible-lint
+  # - ansible-lint
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
