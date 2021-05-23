@@ -5,11 +5,11 @@
 
 name: Ansible Molecule
 
-on:
-  push:
-    tags-ignore:
-      - '*'
+'on':
   pull_request:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '30 5,17 * * *'
 
