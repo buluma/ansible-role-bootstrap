@@ -1,7 +1,7 @@
 ---
 galaxy_info:
-  author: Robert de Bock
-  namespace: robertdebock
+  author: Michael Buluma
+  namespace: buluma
   role_name: bootstrap
   description: Prepare your system to be managed by Ansible.
   license: Apache-2.0
