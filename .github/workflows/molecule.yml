@@ -66,7 +66,7 @@ jobs:
       - name: parse apparmor for mysql
         run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
       - name: molecule
-        uses: buluma/molecule-action@v2.3.4
+        uses: buluma/molecule-action@v2.3.5
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
