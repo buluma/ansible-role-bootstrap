@@ -23,8 +23,18 @@ jobs:
           path: "${{ github.repository }}"
       - name: molecule
         uses: buluma/molecule-action@v2.3.5
-        # with:
-        # command: lint
+        with:
+        command: lint
+
+      - name: Create Issue on Lint failure.
+        if: failure()
+        uses: buluma/create-issue-action@v2.0.0
+        with:
+          title: Lint Test Failed
+          token: ${{secrets.GITHUB_TOKEN}}
+          assignees: ${{github.actor}}
+          labels: bug
+          body: Lint test failed for commit ${{github.sha}}
 
   test:
     needs:
@@ -70,3 +80,13 @@ jobs:
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
+
+      - name: Create Issue on Lint failure.
+        if: failure()
+        uses: buluma/create-issue-action@v2.0.0
+        with:
+          title: Lint Test Failed
+          token: ${{secrets.GITHUB_TOKEN}}
+          assignees: ${{github.actor}}
+          labels: bug
+          body: Lint test failed for commit ${{github.sha}}
