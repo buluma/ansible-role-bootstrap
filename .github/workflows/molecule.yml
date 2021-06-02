@@ -23,7 +23,7 @@ jobs:
           path: "${{ github.repository }}"
           
       - name: install yamllint
-        run: apt-get install yamllint
+        run: sudo apt-get install yamllint
         
       # - name: molecule
       #  uses: buluma/molecule-action@v2.3.5
