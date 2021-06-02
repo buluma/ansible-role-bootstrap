@@ -25,10 +25,8 @@ jobs:
       - name: install yamllint
         run: sudo apt-get install yamllint
         
-      # - name: molecule
-      #  uses: buluma/molecule-action@v2.3.5
-      #  with:
-      #    command: lint
+      - name: molecule
+        uses: buluma/molecule-action@v2.3.5
 
       - name: Create Issue on Lint failure.
         if: failure()
@@ -45,7 +43,7 @@ jobs:
       - lint
     runs-on: ubuntu-20.04
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         config:
           - image: "amazonlinux"
@@ -79,6 +77,10 @@ jobs:
         run: sudo ln -s /etc/apparmor.d/usr.sbin.mysqld /etc/apparmor.d/disable/
       - name: parse apparmor for mysql
         run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
+        
+      - name: install yamllint
+        run: sudo apt-get install yamllint
+        
       - name: molecule
         uses: buluma/molecule-action@v2.3.5
         with:
