@@ -25,6 +25,12 @@ jobs:
       - name: install yamllint
         run: sudo apt-get install yamllint
         
+      - name: install requirements
+        run: sudo apt update && sudo apt install -y python3-pip libssl-dev
+        
+      - name: install molecule
+        run: python3 -m pip install --user "molecule[lint]"
+        
       # - name: molecule
       #  uses: buluma/molecule-action@v2.3.5
       - name: Run Molecule tests.
