@@ -22,7 +22,7 @@ jobs:
           pwd
           ls -a molecule_demo
           python3 -m pip install --upgrade pip
-          python3 -m pip install -r ../../requirements.txt
+          python3 -m pip install -r molecule_demo/requirements.txt
       - name: Test with molecule
         run: |
           molecule test
