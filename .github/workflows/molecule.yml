@@ -16,6 +16,16 @@ name: Ansible Molecule
 jobs:
   lint:
     runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        distro:
+          - centos8
+          - centos7
+          - fedora32
+          - ubuntu2004
+          - ubuntu1804
+          - debian10
+          
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -25,8 +35,14 @@ jobs:
       - name: install yamllint
         run: sudo apt-get install yamllint
         
-      - name: molecule
-        uses: buluma/molecule-action@v2.3.5
+      # - name: molecule
+      #  uses: buluma/molecule-action@v2.3.5
+      - name: Run Molecule tests.
+        run: molecule test
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}
 
       - name: Create Issue on Lint failure.
         if: failure()
