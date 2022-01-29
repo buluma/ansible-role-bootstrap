@@ -94,7 +94,7 @@ jobs:
         run: sudo apt-get install yamllint
         
       - name: molecule
-        uses: buluma/molecule-action@v2.3.5
+        uses: buluma/molecule-action@v4.0.5
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
