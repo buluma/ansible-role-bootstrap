@@ -8,7 +8,7 @@ Prepare your system to be managed by Ansible.
 
 ## [Example Playbook](#example-playbook)
 
-This example is taken from `molecule/resources/converge.yml` and is tested on each push, pull request and release.
+This example is taken from `molecule/default/converge.yml` and is tested on each push, pull request and release.
 ```yaml
 ---
 - name: Converge
@@ -20,11 +20,9 @@ This example is taken from `molecule/resources/converge.yml` and is tested on ea
     - role: robertdebock.bootstrap
 ```
 
-Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
-
 ## [Role Variables](#role-variables)
 
-These variables are set in `defaults/main.yml`:
+The default values for the variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for bootstrap
@@ -41,19 +39,19 @@ bootstrap_timeout: 3
 
 ## [Requirements](#requirements)
 
-- pip packages listed in [requirements.txt](https://github.com/robertdebock/ansible-role-bootstrap/blob/master/requirements.txt).
+- pip packages listed in [requirements.txt](https://github.com/buluma/ansible-role-bootstrap/blob/master/requirements.txt).
 
 
 ## [Context](#context)
 
-This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
+This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://buluma.co.ke/) for further information.
 
 Here is an overview of related roles:
-![dependencies](https://raw.githubusercontent.com/robertdebock/ansible-role-bootstrap/png/requirements.png "Dependencies")
+![dependencies](https://raw.githubusercontent.com/buluma/ansible-role-bootstrap/png/requirements.png "Dependencies")
 
 ## [Compatibility](#compatibility)
 
-This role has been tested on these [container images](https://hub.docker.com/u/robertdebock):
+This role has been tested on these [container images](https://hub.docker.com/u/buluma):
 
 |container|tags|
 |---------|----|
@@ -62,7 +60,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |debian|all|
 |fedora|all|
 |opensuse|all|
-|ubuntu|focal, bionic|
+|ubuntu|all|
 
 The minimum version of Ansible required is 2.10, tests have been done to:
 
@@ -72,32 +70,19 @@ The minimum version of Ansible required is 2.10, tests have been done to:
 
 ## [Exceptions](#exceptions)
 
-Some variarations of the build matrix do not work. These are the variations and reasons why the build won't work:
+Some roles can't run on a specific distribution or version. Here are some exceptions.
 
 | variation                 | reason                 |
 |---------------------------|------------------------|
 | alpine:edge | Failed to create temporary directory. |
 
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-bootstrap/issues)
+If you find issues, please register them in [GitHub](https://github.com/buluma/ansible-role-bootstrap/issues)
 
 ## [License](#license)
 
 Apache-2.0
 
-## [Contributors](#contributors)
-
-I'd like to thank everybody that made contributions to this repository. It motivates me, improves the code and is just fun to collaborate.
-
-- [rembik](https://github.com/rembik)
-- [jellevandehaterd](https://github.com/jellevandehaterd)
-- [fzarifian](https://github.com/fzarifian)
-- [kmonticolo](https://github.com/kmonticolo)
-- [CrystalStiletto](https://github.com/CrystalStiletto)
-- [infothrill](https://github.com/infothrill)
-
 ## [Author Information](#author-information)
 
-[Robert de Bock](https://robertdebock.nl/)
-
-Please consider [sponsoring me](https://github.com/sponsors/robertdebock).
+[Michael Buluma](https://buluma.co.ke/)
