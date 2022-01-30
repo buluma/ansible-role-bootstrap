@@ -4,5 +4,5 @@
 #
 repository:
   description: Prepare your system to be managed by Ansible.
-  homepage: https://robertdebock.nl/
+  homepage: https://buluma.co.ke/
   topics: bootstrap, python, sudo, ansible, molecule, tox, playbook, hacktoberfest

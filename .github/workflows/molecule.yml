@@ -7,10 +7,11 @@ name: Ansible Molecule
 
 on:
   push:
+    tags_ignore:
+      - '*'
   pull_request:
   schedule:
-    - cron: '15 4,17 * * *'
-  workflow_dispatch:
+    - cron: '3 2 2 * *'
 
 jobs:
   lint:
@@ -21,10 +22,12 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: molecule
-        uses: buluma/molecule-action@v4.0.5
+        uses: buluma/molecule-action@4.0.5
         with:
           command: lint
   test:
+    needs:
+      - lint
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
@@ -33,7 +36,13 @@ jobs:
           - image: "alpine"
             tag: "latest"
           - image: "amazonlinux"
-            tag: "2"
+            tag: "latest"
+          - image: "enterpriselinux"
+            tag: "7"
+          - image: "enterpriselinux"
+            tag: "latest"
+          - image: "debian"
+            tag: "latest"
           - image: "debian"
             tag: "bookworm"
           - image: "fedora"
@@ -42,16 +51,12 @@ jobs:
             tag: "latest"
           - image: "fedora"
             tag: "rawhide"
-          - image: "debian"
-            tag: "bullseye"
+          - image: "opensuse"
+            tag: "latest"
+          - image: "ubuntu"
+            tag: "latest"
           - image: "ubuntu"
             tag: "bionic"
-          - image: "oraclelinux"
-            tag: "8"
-          - image: "oraclelinux"
-            tag: "7"
-          - image: "docker-opensuse-systemd"
-            tag: "latest"
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -62,7 +67,7 @@ jobs:
       - name: parse apparmor for mysql
         run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
       - name: molecule
-        uses: buluma/molecule-action@v4.0.5
+        uses: buluma/molecule-action@4.0.5
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
