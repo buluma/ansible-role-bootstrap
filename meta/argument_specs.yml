@@ -6,7 +6,7 @@ argument_specs:
     description: >
       Install the minimum required set of packages (python and sudo) to allow Ansible to manage a system.
       This role tries to figure out what to install and uses the raw module to install the packages.
-    author: Michael Buluma
+    author: Robert de Bock
     options:
       bootstrap_user:
         type: "str"
