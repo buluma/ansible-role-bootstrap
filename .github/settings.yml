@@ -4,5 +4,5 @@
 #
 repository:
   description: Prepare your system to be managed by Ansible.
-  homepage: https://buluma.co.ke/
+  homepage: https://buluma.github.io/
   topics: bootstrap, python, sudo, ansible, molecule, tox, playbook, hacktoberfest
