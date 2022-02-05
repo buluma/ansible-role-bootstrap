@@ -17,7 +17,7 @@ molecule:
   parallel:
     matrix:
       - image: "alpine-openrc"
-        tag: "latest"
+        tag: "edge"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
@@ -50,7 +50,7 @@ testing:
   parallel:
     matrix:
       - image: "alpine-openrc"
-        tag: "latest"
+        tag: "edge"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
