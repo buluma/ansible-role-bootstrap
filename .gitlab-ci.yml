@@ -16,8 +16,6 @@ molecule:
   retry: 1
   parallel:
     matrix:
-      - image: "alpine"
-        tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
@@ -28,11 +26,11 @@ molecule:
         tag: "latest"
       - image: "debian-systemd"
         tag: "bookworm"
-      - image: "fedora"
+      - image: "fedora-systemd"
         tag: "34"
-      - image: "fedora"
+      - image: "fedora-systemd"
         tag: "latest"
-      - image: "fedora"
+      - image: "fedora-systemd"
         tag: "rawhide"
       - image: "opensuse"
         tag: "latest"
@@ -49,8 +47,6 @@ testing:
   retry: 1
   parallel:
     matrix:
-      - image: "alpine"
-        tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
@@ -61,11 +57,11 @@ testing:
         tag: "latest"
       - image: "debian-systemd"
         tag: "bookworm"
-      - image: "fedora"
+      - image: "fedora-systemd"
         tag: "34"
-      - image: "fedora"
+      - image: "fedora-systemd"
         tag: "latest"
-      - image: "fedora"
+      - image: "fedora-systemd"
         tag: "rawhide"
       - image: "opensuse"
         tag: "latest"
