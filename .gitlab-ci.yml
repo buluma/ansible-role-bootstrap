@@ -16,7 +16,7 @@ molecule:
   retry: 1
   parallel:
     matrix:
-      - image: "alpine"
+      - image: "alpine-openrc"
         tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
@@ -49,7 +49,7 @@ testing:
   retry: 1
   parallel:
     matrix:
-      - image: "alpine"
+      - image: "alpine-openrc"
         tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
