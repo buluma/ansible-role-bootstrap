@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: galaxy
-        uses: buluma/galaxy-action@v1.0.1
+        uses: buluma/galaxy-action@1.1.0
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
