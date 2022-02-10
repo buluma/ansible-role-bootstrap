@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.0
         with:
           path: "${{ github.repository }}"
       - name: molecule
@@ -35,6 +35,8 @@ jobs:
       fail-fast: false
       matrix:
         config:
+          - image: "alpine-openrc"
+            tag: "latest"
           - image: "amazonlinux"
             tag: "latest"
           - image: "enterpriselinux"
@@ -59,7 +61,7 @@ jobs:
             tag: "bionic"
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.0
         with:
           path: "${{ github.repository }}"
       - name: disable apparmor for mysql

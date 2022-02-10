@@ -16,6 +16,8 @@ molecule:
   retry: 1
   parallel:
     matrix:
+      - image: "alpine-openrc"
+        tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
@@ -47,6 +49,8 @@ testing:
   retry: 1
   parallel:
     matrix:
+      - image: "alpine-openrc"
+        tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
@@ -70,7 +74,10 @@ testing:
       - image: "docker-ubuntu-systemd"
         tag: "bionic"
 
-
 galaxy:
   script:
-    - ansible-galaxy role info ${CI_PROJECT_NAMESPACE}.bootstrap
+    - ansible-galaxy role info buluma.bootstrap
+
+test_role:
+  script:
+    - ansible-galaxy install buluma.bootstrap
