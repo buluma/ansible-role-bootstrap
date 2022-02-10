@@ -16,8 +16,6 @@ molecule:
   retry: 1
   parallel:
     matrix:
-      - image: "alpine-openrc"
-        tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
@@ -49,8 +47,6 @@ testing:
   retry: 1
   parallel:
     matrix:
-      - image: "alpine-openrc"
-        tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
@@ -82,8 +78,6 @@ role_testing:
   retry: 1
   parallel:
     matrix:
-      - image: "alpine-openrc"
-        tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
@@ -117,8 +111,6 @@ role_testing_live:
   retry: 1
   parallel:
     matrix:
-      - image: "alpine-openrc"
-        tag: "latest"
       - image: "amazonlinux"
         tag: "latest"
       - image: "enterpriselinux"
