@@ -13,13 +13,21 @@ This example is taken from `molecule/default/converge.yml` and is tested on each
 ---
 - name: Converge
   hosts: all
-  become: yes
+  # This role installs packages using the `raw` module and needs to connect as
+  # `root`. (`sudo` is not available before bootstrapping.) All tasks in the
+  # role have `become` set to `no`, so you can use either `no` or `yes` for
+  # `become`, the role will not use become (so `sudo`) for any task.
+  become: yes  # `no` will also work.
+  # This role installs python, gathering facts can't be done before `python` is
+  # installed. This role runs the `setup` module, so facts will be available
+  # after running the role.
   gather_facts: no
 
   roles:
     - role: buluma.bootstrap
 ```
 
+Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
 
 ## [Role Variables](#role-variables)
 
@@ -27,9 +35,6 @@ The default values for the variables are set in `defaults/main.yml`:
 ```yaml
 ---
 # defaults file for bootstrap
-
-# The user to use to connect to machines.
-bootstrap_user: root
 
 # Do you want to wait for the host to be available?
 bootstrap_wait_for_host: no
@@ -45,7 +50,7 @@ bootstrap_timeout: 3
 
 ## [Context](#context)
 
-This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://buluma.co.ke/) for further information.
+This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://buluma.github.io/) for further information.
 
 Here is an overview of related roles:
 
@@ -78,7 +83,6 @@ Some roles can't run on a specific distribution or version. Here are some except
 | variation                 | reason                 |
 |---------------------------|------------------------|
 | alpine:edge | Failed to create temporary directory. |
-
 
 If you find issues, please register them in [GitHub](https://github.com/buluma/ansible-role-bootstrap/issues)
 
