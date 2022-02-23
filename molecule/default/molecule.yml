@@ -14,8 +14,8 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: "bootstrap-${image:-ubuntu}-${tag:-latest}${TOX_ENVNAME}"
-    image: "${namespace:-buluma}/${image:-ubuntu}:${tag:-latest}"
+  - name: "bootstrap-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
+    image: "${namespace:-buluma}/${image:-fedora}:${tag:-latest}"
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
