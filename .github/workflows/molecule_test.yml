@@ -10,7 +10,7 @@ jobs:
         python-version: [3.6, 3.7]
 
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
         with:
           path: molecule_demo
       - name: Set up Python ${{ matrix.python-version }}
