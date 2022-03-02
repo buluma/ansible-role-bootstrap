@@ -1,10 +1,15 @@
 ---
+#
+# Ansible managed
+#
+
 name: Release Drafter
 
 on:
   push:
     # branches to consider in the event; optional, defaults to all
     branches:
+      - master
       - main
       - testing
   # pull_request event is required only for autolabeler

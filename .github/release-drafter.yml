@@ -27,6 +27,6 @@ version-resolver:
       - 'patch'
   default: patch
 template: |
-  ## Changes
+  ## Rifle, Rifle, Rifle!
 
   $CHANGES
