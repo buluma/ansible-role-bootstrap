@@ -4,7 +4,9 @@
 #
 
 on:
-  - push
+  workflow_dispatch:
+  push: {branches: ["master", "main", "testing"]}
+
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
