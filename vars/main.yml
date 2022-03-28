@@ -31,8 +31,8 @@ _bootstrap_install:
     raw: "LANG=C apt-get update && apt-get install -y {{ bootstrap_packages }}"
     stdout_regex: ' 0 newly installed'
   FreeBSD:
-     raw: "env LANG=C pkg install -y {{ bootstrap_packages }}"
-     stdout_regex: 'New packages to be INSTALLED'
+    raw: "env LANG=C pkg install -y {{ bootstrap_packages }}"
+    stdout_regex: 'New packages to be INSTALLED'
   Gentoo:
     raw: "LANG=C equery l {{ bootstrap_packages }} ||
           (emaint -a sync ; emerge -qkv {{ bootstrap_packages }} ; echo 'changed')"

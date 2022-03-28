@@ -29,8 +29,8 @@ galaxy_info:
       versions:
         - all
     - name: FreeBSD
-       versions:
-         - 13
+      versions:
+        - 13
 
   galaxy_tags:
     - bootstrap
