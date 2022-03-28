@@ -57,6 +57,7 @@ bootstrap_os_family_map:
   Debian: [Debian, Ubuntu, Raspbian, Neon, KDE neon,
            Linux Mint, SteamOS, Devuan, Kali, Cumulus Linux,
            'Pop!_OS', Parrot, Pardus GNU/Linux]
+  FreeBSD: [FreeBSD]
   Gentoo: [Gentoo, Funtoo]
   RedHat: [RedHat, Fedora, CentOS, Scientific, SLC,
            Ascendos, CloudLinux, PSBM, Rocky, OracleLinux,
