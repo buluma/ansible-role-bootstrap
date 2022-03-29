@@ -28,9 +28,6 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
-    - name: FreeBSD
-      versions:
-        - 13
 
   galaxy_tags:
     - bootstrap
