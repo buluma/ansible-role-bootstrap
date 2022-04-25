@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-bootstrap/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.0.3...HEAD)
+
+**Merged pull requests:**
+
+- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.4 to 1.0.5 [\#116](https://github.com/buluma/ansible-role-bootstrap/pull/116) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v3.0.3](https://github.com/buluma/ansible-role-bootstrap/tree/v3.0.3) (2022-04-07)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.0.2...v3.0.3)
