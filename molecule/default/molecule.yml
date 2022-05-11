@@ -14,14 +14,23 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: "bootstrap-${image:-docker-ubuntu2104-ansible}-${tag:-latest}${TOX_ENVNAME}"
-    image: "${namespace:-buluma}/${image:-docker-ubuntu2104-ansible}:${tag:-latest}"
+  - name: "bootstrap-${image:-docker-centos7-ansible}-${tag:-latest}${TOX_ENVNAME}"
+    image: "${namespace:-buluma}/${image:-docker-centos7-ansible}:${tag:-latest}"
     command: /sbin/init
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: yes
     pre_build_image: yes
+    tty: true
+    environment:
+      container: docker
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      interpreter_python: auto_legacy_silent
+      callback_whitelist: profile_tasks
+    ssh_connection:
+      pipelining: true
 verifier:
   name: ansible
