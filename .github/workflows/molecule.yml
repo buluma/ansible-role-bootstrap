@@ -10,7 +10,14 @@ on:
   schedule:
     - cron: '3 2 * * *'
   workflow_dispatch:
-  push: {branches: ["master", "main"]}
+  push:
+    branches:
+      - master
+      - main
+      - testing
+    paths-ignore:
+      - '**/README.md'
+      - '**/CHANGELOG.md'
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -25,7 +32,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: molecule
-        uses: buluma/molecule-action@v4.0.6
+        uses: buluma/molecule-action@v5.0.1
         with:
           command: lint
   test:
@@ -72,7 +79,7 @@ jobs:
       - name: parse apparmor for mysql
         run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
       - name: molecule
-        uses: buluma/molecule-action@v4.0.6
+        uses: buluma/molecule-action@v5.0.1
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}

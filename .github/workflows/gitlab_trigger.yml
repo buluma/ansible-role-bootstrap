@@ -1,7 +1,15 @@
 ---
 name: Mirror and run GitLab CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - main
+      - testing
+    paths-ignore:
+      - '**/README.md'
+      - '**/CHANGELOG.md'
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
