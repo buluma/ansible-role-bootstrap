@@ -15,7 +15,7 @@ molecule:
     - if [ -f tox.ini ] ; then tox ; fi
     - if [ ! -f tox.ini ] ; then molecule test ; fi
   rules:
-    - if: $CI_COMMIT_REF_NAME == "main"
+    - if: $CI_COMMIT_REF_NAME == "master"
   retry: 1
   parallel:
     matrix:
