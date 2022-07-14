@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - master
-      - main
-      - testing
     paths-ignore:
       - '**/README.md'
       - '**/CHANGELOG.md'

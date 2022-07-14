@@ -10,7 +10,7 @@ on:
   schedule:
     - cron: '3 2 * * *'
   workflow_dispatch:
-  push: {branches: ["master", "main"]}
+  push: {branches: ["testing", "main"]}
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
