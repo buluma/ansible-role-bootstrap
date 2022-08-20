@@ -41,6 +41,8 @@ molecule:
         tag: "rawhide"
       - image: "docker-opensuse-systemd"
         tag: "latest"
+      - image: "docker-opensuse-systemd"
+        tag: "15.4"
       - image: "docker-ubuntu-systemd"
         tag: "latest"
       - image: "docker-ubuntu-systemd"
