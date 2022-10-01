@@ -1,3 +1,4 @@
+---
 # tasks file for bootstrap
 
 - name: Import assert.yml
