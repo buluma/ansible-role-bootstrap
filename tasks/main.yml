@@ -1,4 +1,3 @@
----
 # tasks file for bootstrap
 
 - name: Import assert.yml
@@ -23,6 +22,10 @@
         timeout: "{{ bootstrap_timeout }}"
       register: bootstrap_connect
       changed_when: no
+    - name: Test sudo
+      ansible.builtin.command:
+        cmd: sudo --version
+      changed_when: no
   rescue:
     - name: Gather bootstrap facts
       ansible.builtin.include_tasks:
@@ -33,63 +36,19 @@
       register: bootstrap_install_packages
       changed_when:
         - (bootstrap_install.stdout_regex in bootstrap_install_packages.stdout and
-           bootstrap_os_family in [ "Alpine", "Archlinux", "FreeBSD", "Gentoo" ]) or
+           bootstrap_os_family in [ "Alpine", "Archlinux", "Gentoo" ]) or
           (bootstrap_install.stdout_regex not in bootstrap_install_packages.stdout and
            bootstrap_os_family in [ "Debian", "RedHat", "Rocky", "Suse" ])
+  # At this stage, python and/or sudo are not installed, `become` can't be used.
   become: no
 
-
-- name: Ensure system is prepared
-  block:
-    - name: Gather ansible facts
-      ansible.builtin.setup:
-
-    - name: Install bootstrap packages (apt)
-      ansible.builtin.apt:
-        name: "{{ bootstrap_facts_packages.split() }}"
-        update_cache: yes
-      changed_when: no
-      when: ansible_pkg_mgr == "apt"
-
-    - name: Install bootstrap packages (yum)
-      ansible.builtin.yum:
-        name: "{{ bootstrap_facts_packages.split() }}"
-        update_cache: yes
-      changed_when: no
-      when: ansible_pkg_mgr == "yum"
-
-    - name: Install bootstrap packages (apk)
-      community.general.apk:
-        name: "{{ bootstrap_facts_packages.split() }}"
-        update_cache: yes
-      changed_when: no
-      when: ansible_pkg_mgr == "apk"
-
-    - name: Install bootstrap packages (dnf)
-      ansible.builtin.dnf:
-        name: "{{ bootstrap_facts_packages.split() }}"
-        update_cache: yes
-      changed_when: no
-      when: ansible_pkg_mgr == "dnf"
-
-    - name: Install bootstrap packages (zypper)
-      community.general.zypper:
-        name: "{{ bootstrap_facts_packages.split() }}"
-        update_cache: yes
-      changed_when: no
-      when: ansible_pkg_mgr == "zypper"
-
-    - name: Install bootstrap packages (pacman)
-      community.general.pacman:
-        name: "{{ bootstrap_facts_packages.split() }}"
-        update_cache: yes
-      changed_when: no
-      when: ansible_pkg_mgr == "pacman"
-
-    - name: Install bootstrap packages (portage)
-      community.general.portage:
-        package: "{{ bootstrap_facts_packages.split() }}"
-        sync: yes
-      changed_when: no
-      when: ansible_pkg_mgr == "portage"
+- name: Gather ansible facts
+  ansible.builtin.setup:
   become: no
+
+- name: Install bootstrap packages (package)
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ bootstrap_facts_packages.split() }}"
+  become: "{{ bootstrap_become }}"
