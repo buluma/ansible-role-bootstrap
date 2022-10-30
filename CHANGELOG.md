@@ -1,5 +1,9 @@
 # Changelog
 
+## [v3.1.2](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.2) (2022-10-01)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.1...v3.1.2)
+
 ## [v3.1.1](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.1) (2022-09-10)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.0...v3.1.1)
