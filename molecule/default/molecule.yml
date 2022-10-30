@@ -29,8 +29,6 @@ provisioner:
   config_options:
     defaults:
       interpreter_python: auto_legacy_silent
-    ssh_connection:
-      pipelining: true
 verifier:
   name: ansible
 scenario:
