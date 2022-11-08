@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-bootstrap/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.2...HEAD)
+
+**Implemented enhancements:**
+
+- skip non-latest suse for debug [\#122](https://github.com/buluma/ansible-role-bootstrap/pull/122) ([buluma](https://github.com/buluma))
+
 ## [v3.1.2](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.2) (2022-10-01)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.1...v3.1.2)
