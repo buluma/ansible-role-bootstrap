@@ -65,8 +65,8 @@ jobs:
             tag: "rawhide"
           - image: "docker-opensuse-systemd"
             tag: "latest"
-          - image: "docker-opensuse-systemd"
-            tag: "15.4"
+          # - image: "docker-opensuse-systemd"
+            # tag: "15.4" # TODO+ Check opensuse for new releases buluma
           - image: "docker-ubuntu-systemd"
             tag: "latest"
           - image: "docker-ubuntu-systemd"
