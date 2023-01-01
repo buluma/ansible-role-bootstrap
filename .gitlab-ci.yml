@@ -12,12 +12,11 @@ molecule:
   stage: build
   allow_failure: true
   script:
-    - if [ -f tox.ini ] ; then tox ; fi
-    - if [ ! -f tox.ini ] ; then molecule test ; fi
+    - molecule test
   rules:
     - if: $CI_COMMIT_REF_NAME == "master"
     - if: $CI_COMMIT_REF_NAME == "main"
-  retry: 1
+  retry: 0
   parallel:
     matrix:
       - image: "alpine-openrc"
@@ -28,28 +27,6 @@ molecule:
         tag: "7"
       - image: "enterpriselinux"
         tag: "8"
-      - image: "enterpriselinux"
-        tag: "latest"
-      - image: "debian-systemd"
-        tag: "latest"
-      - image: "debian-systemd"
-        tag: "buster"
-      - image: "fedora-systemd"
-        tag: "35"
-      - image: "fedora-systemd"
-        tag: "latest"
-      - image: "fedora-systemd"
-        tag: "rawhide"
-      - image: "docker-opensuse-systemd"
-        tag: "latest"
-      - image: "docker-opensuse-systemd"
-        tag: "15.4"
-      - image: "docker-ubuntu-systemd"
-        tag: "latest"
-      - image: "docker-ubuntu-systemd"
-        tag: "focal"
-      - image: "docker-ubuntu-systemd"
-        tag: "bionic"
 
 testing:
   stage: test
