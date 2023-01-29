@@ -8,7 +8,9 @@ molecule:
   stage: build
   allow_failure: true
   script:
-    - molecule test
+    # - molecule test
+    - if [ -f tox.ini ] ; then tox ; fi
+    - if [ ! -f tox.ini ] ; then molecule test ; fi
   rules:
     - if: $CI_COMMIT_REF_NAME == "master"
     - if: $CI_COMMIT_REF_NAME == "main"
