@@ -12,6 +12,7 @@ exclude_paths:
   - ./.cache
   - ./.github
   - ./requirements.yml
+  - ./.gitlab-ci.yml
 
 skip_list:
   - var-spacing
