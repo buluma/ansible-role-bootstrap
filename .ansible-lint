@@ -12,6 +12,9 @@ exclude_paths:
   - ./.cache
   - ./.github
   - ./requirements.yml
+  - ./.gitlab-ci.yml
 
 skip_list:
   - var-spacing
+  - experimental  # all rules tagged as experimental
+  - yaml[comments-indentation]  # Violations reported by yamllint
