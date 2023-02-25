@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-bootstrap/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.4...HEAD)
+
+**Merged pull requests:**
+
+- Bump buluma/gitlab-mirror-ci-action from 1.0.6 to 1.0.7 [\#125](https://github.com/buluma/ansible-role-bootstrap/pull/125) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v3.1.4](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.4) (2022-11-14)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.3...v3.1.4)
