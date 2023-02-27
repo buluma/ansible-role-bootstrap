@@ -72,8 +72,6 @@ jobs:
             tag: "focal"
           - image: "docker-ubuntu-systemd"
             tag: "bionic"
-          - image: "docker-freebsd-ansible"
-            tag: "latest"
     steps:
       - name: checkout
         uses: actions/checkout@v3
