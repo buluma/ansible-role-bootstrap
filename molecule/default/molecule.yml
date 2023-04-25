@@ -52,7 +52,6 @@ scenario:
     - cleanup
     - destroy
   test_sequence:
-    - lint
     - cleanup
     - destroy
     - syntax
