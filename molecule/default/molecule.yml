@@ -16,50 +16,12 @@ driver:
 platforms:
   - name: "bootstrap-${image:-fedora}-${tag:-latest}${TOX_ENVNAME}"
     image: "${namespace:-buluma}/${image:-fedora}:${tag:-latest}"
-    # image: "buluma/docker-${MOLECULE_DISTRO:-centos8}-ansible:latest"
     command: /sbin/init
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: yes
     pre_build_image: yes
-    tty: true
-    environment:
-      container: docker
 provisioner:
   name: ansible
-  config_options:
-    defaults:
-      interpreter_python: auto_legacy_silent
 verifier:
   name: ansible
-scenario:
-  create_sequence:
-    - create
-    - prepare
-  check_sequence:
-    - cleanup
-    - destroy
-    - create
-    - prepare
-    - converge
-    - check
-    - destroy
-  converge_sequence:
-    - create
-    - prepare
-    - converge
-  destroy_sequence:
-    - cleanup
-    - destroy
-  test_sequence:
-    - cleanup
-    - destroy
-    - syntax
-    - create
-    - prepare
-    - converge
-    - idempotence
-    - side_effect
-    - verify
-    - cleanup
-    - destroy
