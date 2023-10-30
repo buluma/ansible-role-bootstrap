@@ -16,4 +16,3 @@ jobs:
         uses: buluma/galaxy-action@v10.30.23
         with:
           galaxy_api_key: ${{ secrets.galaxy_api_key }}
-          git_branch: master
