@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Bump buluma/molecule-action from 5.0.7 to 5.0.8 [\#131](https://github.com/buluma/ansible-role-bootstrap/pull/131) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump buluma/molecule-action from 5.0.4 to 5.0.7 [\#130](https://github.com/buluma/ansible-role-bootstrap/pull/130) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.1.8](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.8) (2023-05-05)
