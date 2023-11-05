@@ -6,19 +6,19 @@
 name: Ansible Molecule
 
 on:
-  # Schedule updates (once weekly)
-  schedule:
-    - cron: '3 2/15 * * 1,0'
-  workflow_dispatch:
   push:
     branches:
       - master
       - main
       - testing
-      - buluma-suse-1
     paths-ignore:
       - '**/README.md'
       - '**/CHANGELOG.md'
+    tags_ignore:
+      - '*'
+  pull_request:
+  schedule:
+    - cron: '3 2 2 * *'
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -53,15 +53,11 @@ jobs:
           - image: "debian-systemd"
             tag: "latest"
           - image: "debian-systemd"
-            tag: "buster"
-          - image: "kali"
-            tag: "latest"
+            tag: "bullseye"
           - image: "fedora-systemd"
-            tag: "35"
+            tag: "37"
           - image: "fedora-systemd"
             tag: "latest"
-          - image: "fedora-systemd"
-            tag: "rawhide"
           - image: "docker-opensuse-systemd"
             tag: "latest"
           - image: "docker-ubuntu-systemd"
@@ -70,6 +66,8 @@ jobs:
             tag: "focal"
           - image: "docker-ubuntu-systemd"
             tag: "bionic"
+          - image: "docker-ubuntu-systemd"
+            tag: "lunar"
     steps:
       - name: checkout
         uses: actions/checkout@v4
