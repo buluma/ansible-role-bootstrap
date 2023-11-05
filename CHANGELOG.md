@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/buluma/ansible-role-bootstrap/tree/HEAD)
+## [v3.1.10](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.10) (2023-11-05)
 
-[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.9...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.9...v3.1.10)
 
 **Implemented enhancements:**
 
@@ -76,10 +76,6 @@
 ## [v3.0.4](https://github.com/buluma/ansible-role-bootstrap/tree/v3.0.4) (2022-04-25)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.0.3...v3.0.4)
-
-**Merged pull requests:**
-
-- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.4 to 1.0.5 [\#116](https://github.com/buluma/ansible-role-bootstrap/pull/116) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.0.3](https://github.com/buluma/ansible-role-bootstrap/tree/v3.0.3) (2022-04-07)
 
@@ -155,6 +151,7 @@
 
 **Merged pull requests:**
 
+- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.4 to 1.0.5 [\#116](https://github.com/buluma/ansible-role-bootstrap/pull/116) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Update molecule.yml [\#106](https://github.com/buluma/ansible-role-bootstrap/pull/106) ([buluma](https://github.com/buluma))
 
 ## [v1.0.10](https://github.com/buluma/ansible-role-bootstrap/tree/v1.0.10) (2022-02-10)
