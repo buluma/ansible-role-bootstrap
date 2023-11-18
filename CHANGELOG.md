@@ -7,6 +7,7 @@
 **Merged pull requests:**
 
 - Bump alstr/todo-to-issue-action from 2.3 to 4.11 [\#143](https://github.com/buluma/ansible-role-bootstrap/pull/143) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.5 to 1.0.8 [\#134](https://github.com/buluma/ansible-role-bootstrap/pull/134) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.1.12](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.12) (2023-11-05)
 
