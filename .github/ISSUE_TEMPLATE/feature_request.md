@@ -4,7 +4,7 @@ about: Suggest an idea for this project
 
 ---
 
-## Proposed feature
+# Proposed feature
 
 A clear and concise description of what you want to happen.
 
@@ -16,4 +16,3 @@ Why is this feature required?
 
 Add any other context about the feature request here.
 
-Please consider [sponsoring me](https://github.com/sponsors/buluma).

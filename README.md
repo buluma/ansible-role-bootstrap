@@ -1,10 +1,10 @@
-# [bootstrap](#bootstrap)
+# [Ansible role bootstrap](#bootstrap)
 
 Prepare your system to be managed by Ansible.
 
-|GitHub|GitLab|Quality|Downloads|Version|Issues|Pull Requests|
-|------|------|-------|---------|-------|------|-------------|
-|[![Ansible Molecule](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-bootstrap)|[![quality](https://img.shields.io/ansible/quality/4657)](https://galaxy.ansible.com/buluma/bootstrap)|[![downloads](https://img.shields.io/ansible/role/d/4657)](https://galaxy.ansible.com/buluma/bootstrap)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/pulls/)|
+|GitHub|GitLab|Downloads|Version|Issues|Pull Requests|
+|------|------|-------|-------|------|-------------|
+|[![github](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml)|[![gitlab](https://gitlab.com/shadowwalker/ansible-role-bootstrap/badges/master/pipeline.svg)](https://gitlab.com/shadowwalker/ansible-role-bootstrap)|[![downloads](https://img.shields.io/ansible/role/d/4657)](https://galaxy.ansible.com/buluma/bootstrap)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/pulls/)|
 
 ## [Example Playbook](#example-playbook)
 
