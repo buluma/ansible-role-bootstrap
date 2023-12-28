@@ -1,5 +1,24 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-bootstrap/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.15...HEAD)
+
+**Closed issues:**
+
+- Update buluma/todo-to-issue-action@v1.0.1 @buluma [\#145](https://github.com/buluma/ansible-role-bootstrap/issues/145)
+- rebuild action [\#142](https://github.com/buluma/ansible-role-bootstrap/issues/142)
+- rebuild action [\#141](https://github.com/buluma/ansible-role-bootstrap/issues/141)
+- Update buluma/todo-to-issue-action@v1.0.1 @buluma [\#140](https://github.com/buluma/ansible-role-bootstrap/issues/140)
+- rebuild action [\#139](https://github.com/buluma/ansible-role-bootstrap/issues/139)
+- Update buluma/todo-to-issue-action@v1.0.1 @buluma [\#137](https://github.com/buluma/ansible-role-bootstrap/issues/137)
+- Update action [\#136](https://github.com/buluma/ansible-role-bootstrap/issues/136)
+- rebuild action [\#135](https://github.com/buluma/ansible-role-bootstrap/issues/135)
+
+**Merged pull requests:**
+
+- Bump buluma/todo-to-issue-action from 2.0.0 to 2.0.1 [\#148](https://github.com/buluma/ansible-role-bootstrap/pull/148) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v3.1.15](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.15) (2023-12-24)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.14...v3.1.15)
