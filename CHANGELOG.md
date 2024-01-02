@@ -58,6 +58,7 @@
 
 **Merged pull requests:**
 
+- Bump buluma/molecule-action from 5.0.7 to 5.0.8 [\#131](https://github.com/buluma/ansible-role-bootstrap/pull/131) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump buluma/molecule-action from 5.0.4 to 5.0.7 [\#130](https://github.com/buluma/ansible-role-bootstrap/pull/130) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.1.8](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.8) (2023-05-05)
@@ -92,10 +93,6 @@
 
 - skip non-latest suse for debug [\#122](https://github.com/buluma/ansible-role-bootstrap/pull/122) ([buluma](https://github.com/buluma))
 
-**Merged pull requests:**
-
-- Bump buluma/molecule-action from 5.0.7 to 5.0.8 [\#131](https://github.com/buluma/ansible-role-bootstrap/pull/131) ([dependabot[bot]](https://github.com/apps/dependabot))
-
 ## [v3.1.2](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.2) (2022-10-01)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.1...v3.1.2)
@@ -107,6 +104,10 @@
 **Implemented enhancements:**
 
 - Master [\#121](https://github.com/buluma/ansible-role-bootstrap/pull/121) ([buluma](https://github.com/buluma))
+
+**Merged pull requests:**
+
+- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.4 to 1.0.5 [\#116](https://github.com/buluma/ansible-role-bootstrap/pull/116) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.1.0](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.0) (2022-08-20)
 
@@ -123,10 +124,6 @@
 ## [v3.0.4](https://github.com/buluma/ansible-role-bootstrap/tree/v3.0.4) (2022-04-25)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.0.3...v3.0.4)
-
-**Merged pull requests:**
-
-- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.4 to 1.0.5 [\#116](https://github.com/buluma/ansible-role-bootstrap/pull/116) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.0.3](https://github.com/buluma/ansible-role-bootstrap/tree/v3.0.3) (2022-04-07)
 
