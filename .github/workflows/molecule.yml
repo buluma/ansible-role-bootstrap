@@ -70,17 +70,13 @@ jobs:
           - image: "docker-ubuntu-systemd"
             tag: "focal"
           - image: "docker-ubuntu-systemd"
-            tag: "lunar"
+            tag: "bionic"
     steps:
-      - name: checkout
+      - name: Checkout Role
         uses: actions/checkout@v4
         with:
           path: "${{ github.repository }}"
-      # - name: disable apparmor for mysql
-      #   run: sudo ln -s /etc/apparmor.d/usr.sbin.mysqld /etc/apparmor.d/disable/
-      # - name: parse apparmor for mysql
-      #   run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
-      - name: molecule
+      - name: Running Molecule Test
         uses: buluma/molecule-action@v6.0.0
         with:
           image: ${{ matrix.config.image }}
