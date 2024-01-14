@@ -21,7 +21,8 @@ on:
   pull_request:
   pull_request_target:
   schedule:
-    - cron: '2 12 * * *'
+    # - cron: '3 2 2 * *'
+    - cron: '3 2 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -74,6 +75,8 @@ jobs:
             tag: "focal"
           - image: "docker-ubuntu-systemd"
             tag: "bionic"
+          - image: "kali"
+            tag: "latest"
     steps:
       - name: Checkout Role
         uses: actions/checkout@v4
