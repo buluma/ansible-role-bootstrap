@@ -75,6 +75,8 @@ jobs:
             tag: "focal"
           - image: "docker-ubuntu-systemd"
             tag: "bionic"
+          - image: "kali"
+            tag: "latest"
     steps:
       - name: Checkout Role
         uses: actions/checkout@v4
