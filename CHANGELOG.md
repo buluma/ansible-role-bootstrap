@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-bootstrap/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.2.0...HEAD)
+
+**Implemented enhancements:**
+
+- Testing Kali support [\#150](https://github.com/buluma/ansible-role-bootstrap/pull/150) ([buluma](https://github.com/buluma))
+
 ## [v3.2.0](https://github.com/buluma/ansible-role-bootstrap/tree/v3.2.0) (2024-01-02)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.16...v3.2.0)
