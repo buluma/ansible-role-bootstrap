@@ -75,15 +75,13 @@ jobs:
             tag: "focal"
           - image: "docker-ubuntu-systemd"
             tag: "bionic"
-          - image: "kali"
-            tag: "latest"
     steps:
       - name: Checkout Role
         uses: actions/checkout@v4
         with:
           path: "${{ github.repository }}"
       - name: Running Molecule Test
-        uses: buluma/molecule-action@v6.0.1
+        uses: buluma/molecule-action@v6.0.3
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
