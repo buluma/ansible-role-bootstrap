@@ -1,5 +1,13 @@
 # Changelog
 
+## [v24.2.0](https://github.com/buluma/ansible-role-bootstrap/tree/v24.2.0) (2024-02-17)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.3.0...v24.2.0)
+
+**Merged pull requests:**
+
+- Bump release-drafter/release-drafter from 5 to 6 [\#151](https://github.com/buluma/ansible-role-bootstrap/pull/151) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v3.3.0](https://github.com/buluma/ansible-role-bootstrap/tree/v3.3.0) (2024-01-20)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.2.0...v3.3.0)
@@ -229,7 +237,7 @@
 
 - Update .gitlab-ci.yml [\#105](https://github.com/buluma/ansible-role-bootstrap/pull/105) ([buluma](https://github.com/buluma))
 - version bump [\#104](https://github.com/buluma/ansible-role-bootstrap/pull/104) ([buluma](https://github.com/buluma))
-- Bump buluma/galaxy-action from 1.0.1 to 1.1.0 [\#101](https://github.com/buluma/ansible-role-bootstrap/pull/101) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump alstr/todo-to-issue-action from 2.3 to 4.6 [\#100](https://github.com/buluma/ansible-role-bootstrap/pull/100) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v1.0.8](https://github.com/buluma/ansible-role-bootstrap/tree/v1.0.8) (2022-02-05)
 
@@ -243,7 +251,7 @@
 
 - use alpine-openrc for alpine [\#103](https://github.com/buluma/ansible-role-bootstrap/pull/103) ([buluma](https://github.com/buluma))
 - test trigger [\#102](https://github.com/buluma/ansible-role-bootstrap/pull/102) ([buluma](https://github.com/buluma))
-- Bump alstr/todo-to-issue-action from 2.3 to 4.6 [\#100](https://github.com/buluma/ansible-role-bootstrap/pull/100) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump buluma/galaxy-action from 1.0.1 to 1.1.0 [\#101](https://github.com/buluma/ansible-role-bootstrap/pull/101) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump actions/checkout from 1 to 2.4.0 [\#99](https://github.com/buluma/ansible-role-bootstrap/pull/99) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v1.0.7](https://github.com/buluma/ansible-role-bootstrap/tree/v1.0.7) (2022-02-02)
