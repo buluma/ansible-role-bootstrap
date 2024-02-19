@@ -1,48 +1,40 @@
 ---
-image: "buluma/github-action-molecule:5.1.1"
+image: "buluma/github-action-molecule:v24.2.0"
+services:
+  - docker
 
 variables:
   PY_COLORS: 1
+  DOCKER_HOST: tcp://docker:2375
 
 molecule:
   script:
     - molecule test
   rules:
-    - if: $CI_COMMIT_REF_NAME == "master"
-  allow_failure: true
+    - if: $CI_COMMIT_REF_NAME == "main"
   parallel:
     matrix:
-      - image: "alpine-openrc"
+      - image: "alpine"
         tag: "latest"
-      - image: "amazonlinux"
-        tag: "latest"
-      - image: "enterpriselinux"
-        tag: "7"
       - image: "enterpriselinux"
         tag: "8"
       - image: "enterpriselinux"
         tag: "latest"
-      - image: "debian-systemd"
+      - image: "debian"
         tag: "latest"
-      - image: "debian-systemd"
+      - image: "debian"
         tag: "bullseye"
-      - image: "fedora-systemd"
+      - image: "fedora"
         tag: "38"
-      - image: "fedora-systemd"
+      - image: "fedora"
         tag: "latest"
-      - image: "fedora-systemd"
+      - image: "fedora"
         tag: "rawhide"
-      - image: "docker-opensuse-systemd"
+      - image: "opensuse"
         tag: "latest"
-      - image: "docker-ubuntu-systemd"
+      - image: "ubuntu"
         tag: "latest"
-      - image: "docker-ubuntu-systemd"
+      - image: "ubuntu"
         tag: "focal"
-      - image: "docker-ubuntu-systemd"
+      - image: "ubuntu"
         tag: "bionic"
-
-galaxy:
-  script:
-    - ansible-galaxy role import --api-key ${GALAXY_API_KEY} buluma ${CI_PROJECT_NAME}
-  rules:
-    - if: $CI_COMMIT_TAG != null
