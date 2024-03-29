@@ -47,7 +47,7 @@ jobs:
       matrix:
         config:
           - image: "alpine-openrc"
-            tag: "all"
+            tag: "latest"
           - image: "amazonlinux"
             tag: "latest"
           - image: "enterpriselinux"
