@@ -1,11 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/buluma/ansible-role-bootstrap/tree/HEAD)
+## [v24.3.31](https://github.com/buluma/ansible-role-bootstrap/tree/v24.3.31) (2024-03-30)
 
-[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v24.2.0...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v24.2.0...v24.3.31)
 
 **Merged pull requests:**
 
+- Bump dependabot/fetch-metadata from 1 to 2 [\#153](https://github.com/buluma/ansible-role-bootstrap/pull/153) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump buluma/dependabot-auto-merge-action from 2.1.1 to 2.1.2 [\#152](https://github.com/buluma/ansible-role-bootstrap/pull/152) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v24.2.0](https://github.com/buluma/ansible-role-bootstrap/tree/v24.2.0) (2024-02-17)
