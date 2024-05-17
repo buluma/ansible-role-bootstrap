@@ -46,10 +46,10 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - image: "alpine-openrc"
-            tag: "latest"
-          - image: "amazonlinux"
-            tag: "latest"
+          - image: "docker-molecule-images"
+            tag: "alpine-openrc"
+          - image: "docker-molecule-images"
+            tag: "amazonlinux2023"
           - image: "enterpriselinux"
             tag: "8"
           - image: "enterpriselinux"
@@ -71,6 +71,8 @@ jobs:
           - image: "docker-molecule-images"
             tag: "opensuse"
           - image: "docker-molecule-images"
+            tag: "ubuntu_latest"
+          - image: "docker-molecule-images"
             tag: "focal"
           - image: "docker-molecule-images"
             tag: "bionic"
@@ -78,6 +80,8 @@ jobs:
             tag: "jammy"
           - image: "docker-molecule-images"
             tag: "lunar"
+          - image: "docker-molecule-images"
+            tag: "noble"
     steps:
       - name: Checkout Role
         uses: actions/checkout@v4
