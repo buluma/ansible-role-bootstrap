@@ -8,10 +8,29 @@ name: Ansible Molecule
 on:
   push:
     branches:
+      - master
       - main
+      - testing
+      - dependabot/**
+      # - renovate/**
+    paths-ignore:
+      - '**/README.md'
+      - '**/CHANGELOG.md'
+    tags_ignore:
+      - '*'
   pull_request:
+  pull_request_target:
   schedule:
-    - cron: '3 2 2 * *'
+    # - cron: '3 2 2 * *'
+    - cron: '3 2 * * *'
+
+  workflow_dispatch:
+
+permissions: write-all
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   lint:
@@ -22,9 +41,7 @@ jobs:
       - name: ansible-lint
         uses: ansible-community/ansible-lint-action@main
   test:
-    needs:
-      - lint
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -33,6 +50,8 @@ jobs:
             tag: "alpine-openrc"
           - image: "docker-molecule-images"
             tag: "amazonlinux2023"
+          - image: "enterpriselinux"
+            tag: "8"
           - image: "enterpriselinux"
             tag: "latest"
           - image: "docker-molecule-images"
@@ -45,8 +64,8 @@ jobs:
             tag: "40"
           - image: "docker-molecule-images"
             tag: "rawhide"
-          # - image: "docker-molecule-images"
-          #   tag: "opensuse"
+          - image: "docker-molecule-images"
+            tag: "opensuse"
           - image: "docker-molecule-images"
             tag: "ubuntu_latest"
           - image: "docker-molecule-images"
@@ -58,21 +77,38 @@ jobs:
           - image: "docker-molecule-images"
             tag: "noble"
     steps:
-      - name: checkout
+      - name: Checkout Role
         uses: actions/checkout@v4
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: molecule
-        run: molecule converge
-        env:
+          path: "${{ github.repository }}"
+      - name: Running Molecule Test
+        uses: buluma/molecule-action@v24.6.17
+        with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
+      - name: Running Role Test
+        run: ansible-galaxy role import --api-key ${{ secrets.galaxy_api_key }} buluma ${{ github.event.repository.name }}
+
+  dependabot:
+    needs:
+      - lint
+      - test
+    runs-on: ubuntu-20.04
+    if: ${{ github.actor == 'dependabot[bot]' || github.actor == 'buluma' && github.event_name == 'pull_request'}}
+    steps:
+      - uses: "actions/checkout@master"
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Approve a PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: "Merge Dependabot PR"
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
