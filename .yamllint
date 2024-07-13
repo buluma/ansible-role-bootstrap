@@ -1,5 +1,6 @@
 ---
 extends: default
+# https://ansible.readthedocs.io/projects/lint/rules/yaml/#octals
 rules:
   comments:
     # https://github.com/prettier/prettier/issues/6780
@@ -10,7 +11,7 @@ rules:
   # 160 chars was the default used by old E204 rule, but
   # you can easily change it or disable in your .yamllint file.
   line-length:
-    max: 160
+    max: 180
   # We are adding an extra space inside braces as that's how prettier does it
   # and we are trying not to fight other linters.
   braces:
