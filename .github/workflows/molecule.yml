@@ -34,7 +34,7 @@ concurrency:
 
 jobs:
   lint:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -91,7 +91,7 @@ jobs:
     needs:
       - lint
       - test
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: ${{ github.actor == 'dependabot[bot]' || github.actor == 'buluma' && github.event_name == 'pull_request'}}
     steps:
       - uses: "actions/checkout@master"
