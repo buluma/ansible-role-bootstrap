@@ -225,6 +225,7 @@
 **Merged pull requests:**
 
 - version bump/focal [\#108](https://github.com/buluma/ansible-role-bootstrap/pull/108) ([buluma](https://github.com/buluma))
+- version bump [\#104](https://github.com/buluma/ansible-role-bootstrap/pull/104) ([buluma](https://github.com/buluma))
 
 ## [v2.0.2](https://github.com/buluma/ansible-role-bootstrap/tree/v2.0.2) (2022-02-12)
 
@@ -257,7 +258,6 @@
 **Merged pull requests:**
 
 - Update .gitlab-ci.yml [\#105](https://github.com/buluma/ansible-role-bootstrap/pull/105) ([buluma](https://github.com/buluma))
-- version bump [\#104](https://github.com/buluma/ansible-role-bootstrap/pull/104) ([buluma](https://github.com/buluma))
 
 ## [v1.0.8](https://github.com/buluma/ansible-role-bootstrap/tree/v1.0.8) (2022-02-05)
 
