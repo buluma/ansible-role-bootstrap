@@ -142,10 +142,6 @@
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.0...v3.1.1)
 
-**Implemented enhancements:**
-
-- Master [\#121](https://github.com/buluma/ansible-role-bootstrap/pull/121) ([buluma](https://github.com/buluma))
-
 ## [v3.1.0](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.0) (2022-08-20)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.0.6...v3.1.0)
@@ -198,6 +194,10 @@
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v2.0.6...v2.0.7)
 
+**Implemented enhancements:**
+
+- Master [\#121](https://github.com/buluma/ansible-role-bootstrap/pull/121) ([buluma](https://github.com/buluma))
+
 **Merged pull requests:**
 
 - Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.3 to 1.0.4 [\#113](https://github.com/buluma/ansible-role-bootstrap/pull/113) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -225,7 +225,6 @@
 **Merged pull requests:**
 
 - version bump/focal [\#108](https://github.com/buluma/ansible-role-bootstrap/pull/108) ([buluma](https://github.com/buluma))
-- version bump [\#104](https://github.com/buluma/ansible-role-bootstrap/pull/104) ([buluma](https://github.com/buluma))
 
 ## [v2.0.2](https://github.com/buluma/ansible-role-bootstrap/tree/v2.0.2) (2022-02-12)
 
@@ -258,6 +257,7 @@
 **Merged pull requests:**
 
 - Update .gitlab-ci.yml [\#105](https://github.com/buluma/ansible-role-bootstrap/pull/105) ([buluma](https://github.com/buluma))
+- version bump [\#104](https://github.com/buluma/ansible-role-bootstrap/pull/104) ([buluma](https://github.com/buluma))
 
 ## [v1.0.8](https://github.com/buluma/ansible-role-bootstrap/tree/v1.0.8) (2022-02-05)
 
