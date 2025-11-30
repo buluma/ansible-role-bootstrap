@@ -8,6 +8,7 @@
 
 - Bump actions/checkout from 4 to 6 [\#169](https://github.com/buluma/ansible-role-bootstrap/pull/169) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible/ansible-lint from 24.7.0 to 25.11.0 [\#168](https://github.com/buluma/ansible-role-bootstrap/pull/168) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump buluma/dependabot-auto-merge-action from 2.1.3 to 2.1.4 [\#158](https://github.com/buluma/ansible-role-bootstrap/pull/158) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump buluma/dependabot-auto-merge-action from 2.1.2 to 2.1.3 [\#154](https://github.com/buluma/ansible-role-bootstrap/pull/154) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v24.7.19](https://github.com/buluma/ansible-role-bootstrap/tree/v24.7.19) (2024-07-13)
