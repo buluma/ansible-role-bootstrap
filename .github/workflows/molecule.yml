@@ -12,7 +12,6 @@ on:
       - main
       - testing
       - dependabot/**
-      # - renovate/**
     paths-ignore:
       - '**/README.md'
       - '**/CHANGELOG.md'
@@ -21,7 +20,6 @@ on:
   pull_request:
   pull_request_target:
   schedule:
-    # - cron: '3 2 2 * *'
     - cron: '3 2 * * *'
 
   workflow_dispatch:
@@ -55,8 +53,6 @@ jobs:
           - image: "enterpriselinux"
             tag: "latest"
           - image: "docker-molecule-images"
-            tag: "buster"
-          - image: "docker-molecule-images"
             tag: "bullseye"
           - image: "docker-molecule-images"
             tag: "39"
@@ -71,9 +67,9 @@ jobs:
           - image: "docker-molecule-images"
             tag: "jammy"
           - image: "docker-molecule-images"
-            tag: "lunar"
-          - image: "docker-molecule-images"
             tag: "noble"
+          - image: "docker-molecule-images"
+            tag: "plucky"
     steps:
       - name: Checkout Role
         uses: actions/checkout@v6
