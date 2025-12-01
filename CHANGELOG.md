@@ -242,6 +242,10 @@
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v1.0.10...v2.0.1)
 
+**Merged pull requests:**
+
+- Update molecule.yml [\#106](https://github.com/buluma/ansible-role-bootstrap/pull/106) ([buluma](https://github.com/buluma))
+
 ## [v1.0.10](https://github.com/buluma/ansible-role-bootstrap/tree/v1.0.10) (2022-02-10)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v2.0.0...v1.0.10)
@@ -256,7 +260,6 @@
 
 **Merged pull requests:**
 
-- Update molecule.yml [\#106](https://github.com/buluma/ansible-role-bootstrap/pull/106) ([buluma](https://github.com/buluma))
 - Update .gitlab-ci.yml [\#105](https://github.com/buluma/ansible-role-bootstrap/pull/105) ([buluma](https://github.com/buluma))
 - version bump [\#104](https://github.com/buluma/ansible-role-bootstrap/pull/104) ([buluma](https://github.com/buluma))
 
