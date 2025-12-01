@@ -29,8 +29,8 @@ jobs:
       fail-fast: false
       matrix:
         distro:
-          - image: "docker-molecule-images"
-            tag: "alpine-openrc"
+          - image: "alpine"
+            tag: "latest"
           - image: "enterpriselinux"
             tag: "latest"
           - image: "debian"
