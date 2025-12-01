@@ -1,48 +1,48 @@
 ---
-image: "buluma/github-action-molecule:5.1.1"
 
 variables:
-  PY_COLORS: 1
+  DEBIAN_FRONTEND: noninteractive
 
 molecule:
+  image: python:3.13
   script:
+    - apt-get update -qq
+    - apt-get -y -qq install yamllint docker.io
+    - mkdir -p /etc/docker
+    - echo '{"features":{"buildkit":true},"exec-opts":["native.cgroupdriver=systemd"]}' > /etc/docker/daemon.json
+    - service docker restart || true
+    - python -m pip install --upgrade pip
+    - pip3 install ansible molecule molecule-plugins[docker] docker
+    - cd $CI_PROJECT_DIR
     - molecule test
   rules:
     - if: $CI_COMMIT_REF_NAME == "master"
-  allow_failure: true
   parallel:
     matrix:
-      - image: "alpine-openrc"
-        tag: "latest"
-      - image: "amazonlinux"
+      - image: "alpine"
         tag: "latest"
       - image: "enterpriselinux"
-        tag: "7"
-      - image: "enterpriselinux"
-        tag: "8"
-      - image: "enterpriselinux"
         tag: "latest"
-      - image: "debian-systemd"
+      - image: "debian"
         tag: "latest"
-      - image: "debian-systemd"
+      - image: "debian"
+        tag: "bookworm"
+      - image: "debian"
         tag: "bullseye"
-      - image: "fedora-systemd"
-        tag: "38"
-      - image: "fedora-systemd"
+      - image: "fedora"
         tag: "latest"
-      - image: "fedora-systemd"
-        tag: "rawhide"
-      - image: "docker-opensuse-systemd"
+      - image: "ubuntu"
         tag: "latest"
-      - image: "docker-ubuntu-systemd"
-        tag: "latest"
-      - image: "docker-ubuntu-systemd"
+      - image: "ubuntu"
+        tag: "jammy"
+      - image: "ubuntu"
         tag: "focal"
-      - image: "docker-ubuntu-systemd"
-        tag: "bionic"
 
 galaxy:
+  image: python:3.13
   script:
+    - apt-get update -qq
+    - apt-get -y -qq install ansible-core
     - ansible-galaxy role import --api-key ${GALAXY_API_KEY} buluma ${CI_PROJECT_NAME}
   rules:
     - if: $CI_COMMIT_TAG != null

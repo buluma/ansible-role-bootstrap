@@ -8,80 +8,82 @@ name: Ansible Molecule
 on:
   push:
     branches:
-      - master
       - main
-      - testing
-    paths-ignore:
-      - '**/README.md'
-      - '**/CHANGELOG.md'
-    tags_ignore:
-      - '*'
-  pull_request:
   schedule:
     - cron: '3 2 2 * *'
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
-
 jobs:
   lint:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v4
       - name: ansible-lint
-        uses: ansible-community/ansible-lint-action@main
-  test:
+        uses: ansible/ansible-lint@v25.9.2
+
+  molecule:
     needs:
       - lint
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        config:
-          - image: "alpine-openrc"
-            tag: "latest"
-          - image: "amazonlinux"
+        distro:
+          - image: "alpine"
             tag: "latest"
           - image: "enterpriselinux"
-            tag: "7"
-          - image: "enterpriselinux"
-            tag: "8"
-          - image: "enterpriselinux"
             tag: "latest"
-          - image: "debian-systemd"
+          - image: "debian"
             tag: "latest"
-          - image: "debian-systemd"
+          - image: "debian"
+            tag: "bookworm"
+          - image: "debian"
             tag: "bullseye"
-          - image: "fedora-systemd"
-            tag: "38"
-          - image: "fedora-systemd"
+          - image: "fedora"
             tag: "latest"
-          - image: "fedora-systemd"
-            tag: "rawhide"
-          - image: "docker-opensuse-systemd"
+          - image: "ubuntu"
             tag: "latest"
-          - image: "docker-ubuntu-systemd"
-            tag: "latest"
-          - image: "docker-ubuntu-systemd"
+          - image: "ubuntu"
+            tag: "jammy"
+          - image: "ubuntu"
             tag: "focal"
-          - image: "docker-ubuntu-systemd"
-            tag: "bionic"
     steps:
       - name: checkout
         uses: actions/checkout@v4
         with:
-          path: "${{ github.repository }}"
-      # - name: disable apparmor for mysql
-      #   run: sudo ln -s /etc/apparmor.d/usr.sbin.mysqld /etc/apparmor.d/disable/
-      # - name: parse apparmor for mysql
-      #   run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
-      - name: molecule
-        uses: buluma/molecule-action@v6.0.0
+          path: ansible-role-bootstrap
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          image: ${{ matrix.config.image }}
-          tag: ${{ matrix.config.tag }}
+          python-version: "3.13"
+
+      - name: Configure Docker for systemd
+        run: |
+          sudo mkdir -p /etc/docker
+          echo '{
+            "features": {
+              "buildkit": true
+            },
+            "exec-opts": ["native.cgroupdriver=systemd"]
+          }' | sudo tee /etc/docker/daemon.json
+          sudo systemctl restart docker || true
+
+      - name: Install Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip3 install ansible molecule molecule-plugins[docker] docker
+
+      - name: Test with molecule
+        run: |
+          cd ansible-role-bootstrap
+          molecule test
+        env:
+          PY_COLORS: 1
+          ANSIBLE_FORCE_COLOR: 1
+          ANSIBLE_ROLES_PATH: ~/.ansible/roles:${GITHUB_WORKSPACE}/ansible-role-bootstrap
+          image: ${{ matrix.distro.image }}
+          tag: ${{ matrix.distro.tag }}

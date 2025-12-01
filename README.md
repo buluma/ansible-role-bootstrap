@@ -1,10 +1,10 @@
-# [Ansible role bootstrap](#bootstrap)
+# Ansible role [bootstrap](https://galaxy.ansible.com/ui/standalone/roles/buluma/bootstrap/documentation)
 
 Prepare your system to be managed by Ansible.
 
-|GitHub|Version|Issues|Pull Requests|
-|------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/pulls/)|
+|GitHub|Version|Issues|Pull Requests|Downloads|
+|------|-------|------|-------------|---------|
+|[![github](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-bootstrap.svg)](https://github.com/buluma/ansible-role-bootstrap/pulls/)|[![Ansible Role](https://img.shields.io/ansible/role/d/buluma/bootstrap)](https://galaxy.ansible.com/ui/standalone/roles/buluma/bootstrap/documentation)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -16,13 +16,13 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
   hosts: all
   # This role installs packages using the `raw` module and needs to connect as
   # `root`. (`sudo` is not available before bootstrapping.) All tasks in the
-  # role have `become` set to `no`, so you can use either `no` or `yes` for
-  # `become`, the role will not use become (so `sudo`) for any task.
-  become: yes  # `no` will also work.
+  # role have `become` set to `false`, so you can use either `false` or `true`
+  # for `become`, the role will not use become (so `sudo`) for any task.
+  become: true  # `false` will also work.
   # This role installs python, gathering facts can't be done before `python` is
   # installed. This role runs the `setup` module, so facts will be available
   # after running the role.
-  gather_facts: no
+  gather_facts: false
 
   roles:
     - role: buluma.bootstrap
@@ -36,15 +36,16 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 ```yaml
 ---
+# defaults file for bootstrap
 
 # Do you want to wait for the host to be available?
-bootstrap_wait_for_host: no
+bootstrap_wait_for_host: false
 
 # The number of seconds you want to wait during connection test before failing.
 bootstrap_timeout: 3
 
-# Set role to use "become" or not.
-bootstrap_become: yes
+# Tell the role to "become" or not.
+bootstrap_become: true
 ```
 
 ## [Requirements](#requirements)
@@ -66,13 +67,12 @@ This role has been tested on these [container images](https://hub.docker.com/u/b
 
 |container|tags|
 |---------|----|
-|[Alpine](https://hub.docker.com/repository/docker/buluma/alpine/general)|all|
-|[Amazon](https://hub.docker.com/repository/docker/buluma/amazonlinux/general)|Candidate|
-|[EL](https://hub.docker.com/repository/docker/buluma/enterpriselinux/general)|all|
-|[Debian](https://hub.docker.com/repository/docker/buluma/debian/general)|all|
-|[Fedora](https://hub.docker.com/repository/docker/buluma/fedora/general)|all|
-|[opensuse](https://hub.docker.com/repository/docker/buluma/opensuse/general)|all|
-|[Ubuntu](https://hub.docker.com/repository/docker/buluma/ubuntu/general)|all|
+|[Alpine](https://hub.docker.com/r/buluma/alpine)|all|
+|[Amazon](https://hub.docker.com/r/buluma/amazonlinux)|Candidate|
+|[EL](https://hub.docker.com/r/buluma/enterpriselinux)|9|
+|[Debian](https://hub.docker.com/r/buluma/debian)|all|
+|[Fedora](https://hub.docker.com/r/buluma/fedora)|all|
+|[Ubuntu](https://hub.docker.com/r/buluma/ubuntu)|all|
 
 The minimum version of Ansible required is 2.12, tests have been done to:
 
@@ -88,9 +88,8 @@ If you find issues, please register them in [GitHub](https://github.com/buluma/a
 
 ## [License](#license)
 
-[Apache-2.0](https://github.com/buluma/ansible-role-bootstrap/blob/master/LICENSE).
+[Apache-2.0](https://github.com/buluma/ansible-role-bootstrap/blob/master/LICENSE)
 
 ## [Author Information](#author-information)
 
-[buluma](https://buluma.github.io/)
-
+[Shadow Walker](https://buluma.github.io/)

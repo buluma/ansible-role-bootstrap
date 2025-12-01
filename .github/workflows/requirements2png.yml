@@ -3,20 +3,29 @@
 # Ansible managed
 #
 
+name: Ansible Graphviz
 on:
   push:
+    branches:
+      - master
+      - main
     paths:
       - '.github/workflows/requirements2png.yml'
-name: Ansible Graphviz
+    tags_ignore:
+      - '*'
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: ${{ github.repository }}
       - name: create png
