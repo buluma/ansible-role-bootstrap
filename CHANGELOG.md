@@ -1,16 +1,20 @@
 # Changelog
 
+## [v25.12.04](https://github.com/buluma/ansible-role-bootstrap/tree/v25.12.04) (2025-12-01)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v25.12.03...v25.12.04)
+
 ## [v25.12.03](https://github.com/buluma/ansible-role-bootstrap/tree/v25.12.03) (2025-12-01)
 
-[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v24.8.0...v25.12.03)
-
-## [v24.8.0](https://github.com/buluma/ansible-role-bootstrap/tree/v24.8.0) (2025-12-01)
-
-[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v25.12.02...v24.8.0)
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v25.12.02...v25.12.03)
 
 ## [v25.12.02](https://github.com/buluma/ansible-role-bootstrap/tree/v25.12.02) (2025-12-01)
 
-[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v24.7.19...v25.12.02)
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v24.8.0...v25.12.02)
+
+## [v24.8.0](https://github.com/buluma/ansible-role-bootstrap/tree/v24.8.0) (2025-12-01)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v24.7.19...v24.8.0)
 
 **Merged pull requests:**
 
@@ -248,19 +252,19 @@
 
 ## [v2.0.1](https://github.com/buluma/ansible-role-bootstrap/tree/v2.0.1) (2022-02-11)
 
-[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v1.0.10...v2.0.1)
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v2.0.0...v2.0.1)
 
 **Merged pull requests:**
 
 - Update molecule.yml [\#106](https://github.com/buluma/ansible-role-bootstrap/pull/106) ([buluma](https://github.com/buluma))
 
-## [v1.0.10](https://github.com/buluma/ansible-role-bootstrap/tree/v1.0.10) (2022-02-10)
-
-[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v2.0.0...v1.0.10)
-
 ## [v2.0.0](https://github.com/buluma/ansible-role-bootstrap/tree/v2.0.0) (2022-02-10)
 
-[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v1.0.9...v2.0.0)
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v1.0.10...v2.0.0)
+
+## [v1.0.10](https://github.com/buluma/ansible-role-bootstrap/tree/v1.0.10) (2022-02-10)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v1.0.9...v1.0.10)
 
 ## [v1.0.9](https://github.com/buluma/ansible-role-bootstrap/tree/v1.0.9) (2022-02-10)
 
