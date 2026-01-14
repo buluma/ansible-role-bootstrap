@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: ansible-lint
         uses: ansible/ansible-lint@v26.1.0
 
@@ -47,7 +47,7 @@ jobs:
             tag: "jammy"
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: ansible-role-bootstrap
 
