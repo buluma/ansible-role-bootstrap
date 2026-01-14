@@ -19,7 +19,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v6
       - name: ansible-lint
-        uses: ansible/ansible-lint@v25.9.2
+        uses: ansible/ansible-lint@v26.1.0
 
   molecule:
     needs:
@@ -45,8 +45,6 @@ jobs:
             tag: "latest"
           - image: "ubuntu"
             tag: "jammy"
-          - image: "ubuntu"
-            tag: "focal"
     steps:
       - name: checkout
         uses: actions/checkout@v6
@@ -54,7 +52,7 @@ jobs:
           path: ansible-role-bootstrap
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
