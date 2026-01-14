@@ -8,6 +8,7 @@
 
 - Bump ansible/ansible-lint from 25.11.1 to 26.1.0 [\#173](https://github.com/buluma/ansible-role-bootstrap/pull/173) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible/ansible-lint from 25.9.2 to 25.11.1 [\#172](https://github.com/buluma/ansible-role-bootstrap/pull/172) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump actions/setup-python from 5 to 6 [\#171](https://github.com/buluma/ansible-role-bootstrap/pull/171) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v25.12.04](https://github.com/buluma/ansible-role-bootstrap/tree/v25.12.04) (2025-12-01)
 
@@ -146,7 +147,6 @@
 **Merged pull requests:**
 
 - Bump buluma/gitlab-mirror-ci-action from 1.0.6 to 1.0.7 [\#125](https://github.com/buluma/ansible-role-bootstrap/pull/125) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.3 to 1.0.4 [\#113](https://github.com/buluma/ansible-role-bootstrap/pull/113) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.1.4](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.4) (2022-11-14)
 
@@ -167,6 +167,10 @@
 ## [v3.1.1](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.1) (2022-09-10)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.0...v3.1.1)
+
+**Implemented enhancements:**
+
+- Master [\#121](https://github.com/buluma/ansible-role-bootstrap/pull/121) ([buluma](https://github.com/buluma))
 
 ## [v3.1.0](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.0) (2022-08-20)
 
@@ -219,6 +223,10 @@
 ## [v2.0.7](https://github.com/buluma/ansible-role-bootstrap/tree/v2.0.7) (2022-03-28)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v2.0.6...v2.0.7)
+
+**Merged pull requests:**
+
+- Bump buluma/gh-action-auto-merge-dependabot-updates from 1.0.3 to 1.0.4 [\#113](https://github.com/buluma/ansible-role-bootstrap/pull/113) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v2.0.6](https://github.com/buluma/ansible-role-bootstrap/tree/v2.0.6) (2022-03-23)
 
