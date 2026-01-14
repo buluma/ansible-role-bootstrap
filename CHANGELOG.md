@@ -122,10 +122,6 @@
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.8...v3.1.9)
 
-**Implemented enhancements:**
-
-- skip non-latest suse for debug [\#122](https://github.com/buluma/ansible-role-bootstrap/pull/122) ([buluma](https://github.com/buluma))
-
 **Merged pull requests:**
 
 - Bump buluma/molecule-action from 5.0.7 to 5.0.8 [\#131](https://github.com/buluma/ansible-role-bootstrap/pull/131) ([dependabot[bot]](https://github.com/apps/dependabot))
@@ -158,6 +154,10 @@
 ## [v3.1.3](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.3) (2022-11-08)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.2...v3.1.3)
+
+**Implemented enhancements:**
+
+- skip non-latest suse for debug [\#122](https://github.com/buluma/ansible-role-bootstrap/pull/122) ([buluma](https://github.com/buluma))
 
 ## [v3.1.2](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.2) (2022-10-01)
 
