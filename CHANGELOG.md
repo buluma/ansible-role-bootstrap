@@ -124,7 +124,7 @@
 
 **Implemented enhancements:**
 
-- skip non-latest suse for debug [\#122](https://github.com/buluma/ansible-role-bootstrap/pull/122) ([buluma](https://github.com/buluma))
+- Master [\#121](https://github.com/buluma/ansible-role-bootstrap/pull/121) ([buluma](https://github.com/buluma))
 
 **Merged pull requests:**
 
@@ -159,6 +159,10 @@
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.2...v3.1.3)
 
+**Implemented enhancements:**
+
+- skip non-latest suse for debug [\#122](https://github.com/buluma/ansible-role-bootstrap/pull/122) ([buluma](https://github.com/buluma))
+
 ## [v3.1.2](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.2) (2022-10-01)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.1...v3.1.2)
@@ -166,10 +170,6 @@
 ## [v3.1.1](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.1) (2022-09-10)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.0...v3.1.1)
-
-**Implemented enhancements:**
-
-- Master [\#121](https://github.com/buluma/ansible-role-bootstrap/pull/121) ([buluma](https://github.com/buluma))
 
 ## [v3.1.0](https://github.com/buluma/ansible-role-bootstrap/tree/v3.1.0) (2022-08-20)
 
