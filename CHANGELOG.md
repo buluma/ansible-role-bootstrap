@@ -122,10 +122,6 @@
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v3.1.8...v3.1.9)
 
-**Implemented enhancements:**
-
-- Master [\#121](https://github.com/buluma/ansible-role-bootstrap/pull/121) ([buluma](https://github.com/buluma))
-
 **Merged pull requests:**
 
 - Bump buluma/molecule-action from 5.0.7 to 5.0.8 [\#131](https://github.com/buluma/ansible-role-bootstrap/pull/131) ([dependabot[bot]](https://github.com/apps/dependabot))
