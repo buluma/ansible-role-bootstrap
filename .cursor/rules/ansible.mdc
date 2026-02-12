@@ -21,7 +21,7 @@ alwaysApply: true
 ## Meta (`meta/main.yml`)
 
 - The `galaxy_info.description` captures the intent of the role.
-- The file `meta/main.yml` is used to generate many other files using [Ansible Generator](https://github.com/buluma/ansible-generator).
+- The file `meta/main.yml` is used to generate many other files using [Ansible Generator](https://github.com/robertdebock/ansible-generator).
 - **Don't** use `dependencies`: This may surprise a user with extra roles being downloaded and executed.
 - Distributions mentioned are tested using Molecule.
 

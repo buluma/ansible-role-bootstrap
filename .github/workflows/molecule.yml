@@ -8,18 +8,29 @@ name: Ansible Molecule
 on:
   push:
     branches:
+      - master
+      - main
+  pull_request:
+    branches:
+      - master
       - main
   schedule:
     - cron: '3 2 2 * *'
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
       - name: ansible-lint
-        uses: ansible/ansible-lint@v26.1.1
+        uses: ansible/ansible-lint@v25.9.2
 
   molecule:
     needs:
@@ -29,30 +40,30 @@ jobs:
       fail-fast: false
       matrix:
         distro:
-          - image: "alpine"
+          - image: "docker-molecule-images"
             tag: "latest"
           - image: "enterpriselinux"
             tag: "latest"
-          - image: "debian"
+          - image: "docker-molecule-images"
             tag: "latest"
-          - image: "debian"
+          - image: "docker-molecule-images"
             tag: "bookworm"
-          - image: "debian"
+          - image: "docker-molecule-images"
             tag: "bullseye"
-          - image: "fedora"
+          - image: "docker-molecule-images"
             tag: "latest"
-          - image: "ubuntu"
+          - image: "docker-molecule-images"
             tag: "latest"
-          - image: "ubuntu"
+          - image: "docker-molecule-images"
             tag: "jammy"
     steps:
       - name: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           path: ansible-role-bootstrap
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13"
 
