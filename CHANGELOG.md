@@ -6,6 +6,7 @@
 
 **Merged pull requests:**
 
+- Bump ansible/ansible-lint from 25.9.2 to 26.1.1 [\#177](https://github.com/buluma/ansible-role-bootstrap/pull/177) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible/ansible-lint from 26.1.0 to 26.1.1 [\#174](https://github.com/buluma/ansible-role-bootstrap/pull/174) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible/ansible-lint from 25.11.1 to 26.1.0 [\#173](https://github.com/buluma/ansible-role-bootstrap/pull/173) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible/ansible-lint from 25.9.2 to 25.11.1 [\#172](https://github.com/buluma/ansible-role-bootstrap/pull/172) ([dependabot[bot]](https://github.com/apps/dependabot))
