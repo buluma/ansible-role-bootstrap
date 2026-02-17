@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/buluma/ansible-role-bootstrap/tree/HEAD)
+## [v26.02.17](https://github.com/buluma/ansible-role-bootstrap/tree/v26.02.17) (2026-02-17)
 
-[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v25.12.04...HEAD)
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v25.12.04...v26.02.17)
 
 **Merged pull requests:**
 
