@@ -34,12 +34,12 @@
       register: sudo_check
       changed_when: false
       ignore_errors: true
-      when: ansible_distribution == "Fedora"
+      when: ansible_facts['distribution'] == "Fedora"
 
     - name: Show sudo configuration
       ansible.builtin.debug:
         var: sudo_check
-      when: ansible_distribution == "Fedora"
+      when: ansible_facts['distribution'] == "Fedora"
 
     - name: Check sudoers file
       ansible.builtin.command:
@@ -47,9 +47,9 @@
       register: sudoers_content
       changed_when: false
       ignore_errors: true
-      when: ansible_distribution == "Fedora"
+      when: ansible_facts['distribution'] == "Fedora"
 
     - name: Show sudoers content
       ansible.builtin.debug:
         var: sudoers_content
-      when: ansible_distribution == "Fedora"
+      when: ansible_facts['distribution'] == "Fedora"
