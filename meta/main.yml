@@ -2,10 +2,10 @@
 galaxy_info:
   author: buluma
   role_name: bootstrap
-  description: Prepare your system to be managed by Ansible.
+  description: 'Prepare your system to be managed by Ansible.'
   license: Apache-2.0
   company: ShadowNet
-  min_ansible_version: '2.12'
+  min_ansible_version: '2.12
   platforms:
     - name: Alpine
       versions:
