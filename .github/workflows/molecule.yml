@@ -35,28 +35,35 @@ jobs:
   molecule:
     needs:
       - lint
-    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         distro:
           - image: "docker-molecule-images"
-            tag: "latest"
+            tag: "alpine-openrc_latest"
           - image: "enterpriselinux"
             tag: "8"
           - image: "enterpriselinux"
             tag: "latest"
           - image: "docker-molecule-images"
-            tag: "latest"
+            tag: "debian_latest"
           - image: "docker-molecule-images"
             tag: "bookworm"
           - image: "docker-molecule-images"
             tag: "bullseye"
           - image: "docker-molecule-images"
-            tag: "latest"
+            tag: "fedora_latest"
           - image: "docker-molecule-images"
-            tag: "latest"
+            tag: "fedora42"
+          - image: "docker-molecule-images"
+            tag: "fedora44"
+          - image: "docker-molecule-images"
+            tag: "fedora45"
+          - image: "docker-molecule-images"
+            tag: "plucky"
+          - image: "docker-molecule-images"
+            tag: "ubuntu_latest"
           - image: "docker-molecule-images"
             tag: "jammy"
     steps:
