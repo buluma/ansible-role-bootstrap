@@ -43,8 +43,6 @@ jobs:
           - image: "docker-molecule-images"
             tag: "alpine-openrc_latest"
           - image: "enterpriselinux"
-            tag: "8"
-          - image: "enterpriselinux"
             tag: "latest"
           - image: "docker-molecule-images"
             tag: "debian_latest"
