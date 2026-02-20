@@ -11,10 +11,10 @@ on:
       - master
       - main
     paths-ignore:
-      - "**/README.md"
-      - "**/CHANGELOG.md"
+      - '**/README.md'
+      - '**/CHANGELOG.md'
     tags_ignore:
-      - "*"
+      - '*'
 
 permissions: write-all
 
