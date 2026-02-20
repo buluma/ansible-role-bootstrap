@@ -6,6 +6,11 @@ _bootstrap_packages:
   Archlinux: python sudo
   Debian: python3 sudo gnupg python3-apt
   Gentoo: python sudo gentoolkit
+  CentOS_8: python38 sudo
+  Rocky_8: python38 sudo
+  AlmaLinux_8: python38 sudo
+  OracleLinux_8: python38 sudo
+  RedHat_8: python38 sudo
   RedHat: python3 sudo
   Suse: python3 python3-xml sudo
   Amazon: python sudo

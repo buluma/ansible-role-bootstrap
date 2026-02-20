@@ -18,6 +18,57 @@
     - ansible_connection is not none
     - bootstrap_wait_for_host
 
+- name: Gather bootstrap facts
+  ansible.builtin.include_tasks:
+    file: gather_facts.yml
+  when:
+    - bootstrap_os_family is not defined or bootstrap_distribution is not defined or bootstrap_distribution_major_version is not defined
+
+- name: Detect python3 version (raw)
+  ansible.builtin.raw: "python3 -c 'import sys; print(f\"{sys.version_info[0]}.{sys.version_info[1]}\")'"
+  args:
+    executable: /bin/sh
+  register: bootstrap_python3_version
+  changed_when: false
+  failed_when: false
+  become: false
+
+- name: Ensure modern python on Enterprise Linux 8 (raw)
+  ansible.builtin.raw: "yum -y install python38 || yum -y install python39"
+  args:
+    executable: /bin/sh
+  register: bootstrap_install_modern_python
+  changed_when: bootstrap_install_modern_python.rc == 0
+  failed_when: false
+  become: false
+  when:
+    - bootstrap_os_family | default('') == "RedHat"
+    - (bootstrap_distribution_major_version | default('0') | int) == 8
+    - bootstrap_python3_version.rc != 0 or (bootstrap_python3_version.stdout | trim) is version('3.7', '<')
+
+- name: Select ansible python interpreter (Enterprise Linux 8)
+  ansible.builtin.raw: >-
+    if [ -x /usr/bin/python3.9 ]; then echo /usr/bin/python3.9;
+    elif [ -x /usr/bin/python3.8 ]; then echo /usr/bin/python3.8;
+    else echo /usr/bin/python3; fi
+  args:
+    executable: /bin/sh
+  register: bootstrap_python_interpreter
+  changed_when: false
+  become: false
+  when:
+    - bootstrap_os_family | default('') == "RedHat"
+    - (bootstrap_distribution_major_version | default('0') | int) == 8
+
+- name: Set ansible python interpreter fact (Enterprise Linux 8)
+  ansible.builtin.set_fact:
+    ansible_python_interpreter: "{{ bootstrap_python_interpreter.stdout | trim }}"
+  when:
+    - bootstrap_os_family | default('') == "RedHat"
+    - (bootstrap_distribution_major_version | default('0') | int) == 8
+    - bootstrap_python_interpreter is defined
+    - (bootstrap_python_interpreter.stdout | trim) | length > 0
+
 - name: Prepare system
   # At this stage, python and/or sudo are not installed, `become` can't be used.
   # This means this role has to run as root, can't switch user.
@@ -57,3 +108,5 @@
     update_cache: true
   loop: "{{ bootstrap_facts_packages.split() }}"
   become: "{{ bootstrap_become }}"
+  when:
+    - not (bootstrap_os_family | default('') == "RedHat" and (bootstrap_distribution_major_version | default('0') | int) == 8)
