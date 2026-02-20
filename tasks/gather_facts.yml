@@ -1,5 +1,4 @@
 ---
-
 - name: gather_facts | Lookup bootstrap facts
   ansible.builtin.raw: "cat /etc/os-release"
   become: false

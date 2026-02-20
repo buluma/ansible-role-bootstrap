@@ -15,8 +15,8 @@ on:
       - renovate/**
       - testing
     paths-ignore:
-      - '**/README.md'
-      - '**/CHANGELOG.md'
+      - "**/README.md"
+      - "**/CHANGELOG.md"
   # pull_request event is required only for autolabeler
   pull_request:
     # Only following types are handled by the action, but one can default to all as well
@@ -39,7 +39,6 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-
       # Drafts your next Release notes as Pull Requests are merged into "master"
       - uses: release-drafter/release-drafter@master
         # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml

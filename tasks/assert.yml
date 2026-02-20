@@ -1,5 +1,4 @@
 ---
-
 - name: assert | Test bootstrap_wait_for_host
   ansible.builtin.assert:
     that:

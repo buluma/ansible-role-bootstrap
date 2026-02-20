@@ -1,5 +1,4 @@
 ---
-
 variables:
   DEBIAN_FRONTEND: noninteractive
 

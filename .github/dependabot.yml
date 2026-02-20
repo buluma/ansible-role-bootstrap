@@ -2,18 +2,18 @@
 version: 2
 updates:
   - package-ecosystem: docker
-    directory: '/'
+    directory: "/"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
   - package-ecosystem: npm
-    directory: '/'
+    directory: "/"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
     labels:
-      - 'type: dependencies'
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+      - "type: dependencies"
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: 'daily'
+      interval: "daily"

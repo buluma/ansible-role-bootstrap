@@ -1,5 +1,4 @@
 ---
-
 argument_specs:
   main:
     short_description: "Prepare a system to be managed by Ansible."
