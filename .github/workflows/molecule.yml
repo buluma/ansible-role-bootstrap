@@ -10,10 +10,12 @@ on:
     branches:
       - master
       - main
+      - codex-*
   pull_request:
     branches:
       - master
       - main
+      - codex-*
   schedule:
     - cron: '3 2 2 * *'
 
@@ -29,6 +31,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v6
+      - name: Verify bootstrap coverage metadata
+        run: python3 .github/scripts/check_bootstrap_coverage.py
       - name: ansible-lint
         uses: ansible/ansible-lint@v26.1.1
 
@@ -40,52 +44,101 @@ jobs:
       fail-fast: false
       matrix:
         distro:
+          # PR matrix: maintained distros and stable tags.
           - image: "docker-molecule-images"
             tag: "alpine-openrc_latest"
-          - image: "enterpriselinux"
-            tag: "latest"
-          - image: "docker-molecule-images"
-            tag: "debian_latest"
+            tier: "pr"
+            covers: "Alpine"
           - image: "docker-molecule-images"
             tag: "bookworm"
+            tier: "pr"
+            covers: "Debian,Debian_12"
           - image: "docker-molecule-images"
             tag: "bullseye"
-          - image: "docker-molecule-images"
-            tag: "fedora_latest"
-          - image: "docker-molecule-images"
-            tag: "fedora42"
+            tier: "pr"
+            covers: "Debian,Debian_11"
           - image: "docker-molecule-images"
             tag: "fedora44"
+            tier: "pr"
+            covers: "Fedora"
           - image: "docker-molecule-images"
             tag: "fedora45"
+            tier: "pr"
+            covers: "Fedora"
           - image: "docker-molecule-images"
             tag: "plucky"
-          - image: "docker-molecule-images"
-            tag: "ubuntu_latest"
+            tier: "pr"
+            covers: "Debian"
           - image: "docker-molecule-images"
             tag: "jammy"
+            tier: "pr"
+            covers: "Debian"
           - image: "docker-molecule-images"
             tag: "kalilinux"
+            tier: "pr"
+            covers: "Debian"
           - image: "docker-molecule-images"
             tag: "oraclelinux9"
+            tier: "pr"
+            covers: "OracleLinux,RedHat"
           - image: "docker-molecule-images"
             tag: "rockylinux9"
+            tier: "pr"
+            covers: "Rocky,RedHat"
           - image: "docker-molecule-images"
             tag: "almalinux9"
+            tier: "pr"
+            covers: "AlmaLinux,RedHat"
           - image: "docker-molecule-images"
             tag: "almalinux10"
+            tier: "pr"
+            covers: "AlmaLinux,RedHat"
           - image: "docker-molecule-images"
             tag: "amazonlinux2023"
-          - image: "docker-molecule-images"
-            tag: "amazonlinux_latest"
+            tier: "pr"
+            covers: "Amazon,RedHat"
           - image: "docker-molecule-images"
             tag: "archlinux"
+            tier: "pr"
+            covers: "Archlinux"
           - image: "docker-molecule-images"
             tag: "centos-stream9"
+            tier: "pr"
+            covers: "CentOS,RedHat"
           - image: "docker-molecule-images"
             tag: "rhel9"
+            tier: "pr"
+            covers: "RedHat"
           - image: "docker-molecule-images"
             tag: "opensuse-tumbleweed"
+            tier: "pr"
+            covers: "Suse"
+          # Scheduled/workflow-dispatch matrix: legacy and fallback branches.
+          - image: "enterpriselinux"
+            tag: "latest"
+            tier: "extended"
+            covers: "RedHat_8,CentOS_8,Rocky_8,AlmaLinux_8,OracleLinux_8"
+          - image: "docker-molecule-images"
+            tag: "debian_latest"
+            tier: "extended"
+            covers: "Debian_10,Debian_9,Debian_8"
+          - image: "docker-molecule-images"
+            tag: "fedora42"
+            tier: "extended"
+            covers: "Fedora"
+          - image: "docker-molecule-images"
+            tag: "fedora_latest"
+            tier: "extended"
+            covers: "Fedora"
+          - image: "docker-molecule-images"
+            tag: "ubuntu_latest"
+            tier: "extended"
+            covers: "Debian"
+          - image: "docker-molecule-images"
+            tag: "amazonlinux_latest"
+            tier: "extended"
+            covers: "Amazon,RedHat"
+    if: ${{ matrix.distro.tier == 'pr' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     steps:
       - name: checkout
         uses: actions/checkout@v6
