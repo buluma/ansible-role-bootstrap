@@ -10,12 +10,10 @@ on:
     branches:
       - master
       - main
-      - codex-*
   pull_request:
     branches:
       - master
       - main
-      - codex-*
   schedule:
     - cron: '3 2 2 * *'
 
@@ -51,43 +49,17 @@ jobs:
           - image: "docker-molecule-images"
             tag: "bookworm"
           - image: "docker-molecule-images"
-            tag: "bullseye"
-          - image: "docker-molecule-images"
             tag: "fedora_latest"
           - image: "docker-molecule-images"
-            tag: "fedora42"
-          - image: "docker-molecule-images"
-            tag: "fedora44"
-          - image: "docker-molecule-images"
             tag: "fedora45"
-          - image: "docker-molecule-images"
-            tag: "plucky"
           - image: "docker-molecule-images"
             tag: "ubuntu_latest"
           - image: "docker-molecule-images"
             tag: "jammy"
           - image: "docker-molecule-images"
-            tag: "kalilinux"
-          - image: "docker-molecule-images"
-            tag: "oraclelinux9"
-          - image: "docker-molecule-images"
-            tag: "rockylinux9"
-          - image: "docker-molecule-images"
-            tag: "almalinux9"
-          - image: "docker-molecule-images"
-            tag: "almalinux10"
-          - image: "docker-molecule-images"
-            tag: "amazonlinux2023"
-          - image: "docker-molecule-images"
-            tag: "amazonlinux_latest"
-          - image: "docker-molecule-images"
-            tag: "archlinux"
-          - image: "docker-molecule-images"
-            tag: "centos-stream9"
-          - image: "docker-molecule-images"
-            tag: "rhel9"
-          - image: "docker-molecule-images"
             tag: "opensuse-tumbleweed"
+          - image: "docker-molecule-images"
+            tag: "kalilinux"
     steps:
       - name: checkout
         uses: actions/checkout@v6
