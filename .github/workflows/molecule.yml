@@ -64,6 +64,10 @@ jobs:
             tag: "ubuntu_latest"
           - image: "docker-molecule-images"
             tag: "jammy"
+          - image: "docker-molecule-images"
+            tag: "opensuse"
+          - image: "docker-molecule-images"
+            tag: "kalilinux"
     steps:
       - name: checkout
         uses: actions/checkout@v6
