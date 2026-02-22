@@ -10,10 +10,12 @@ on:
     branches:
       - master
       - main
+      - codex-*
   pull_request:
     branches:
       - master
       - main
+      - codex-*
   schedule:
     - cron: '3 2 2 * *'
 
