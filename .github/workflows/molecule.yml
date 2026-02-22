@@ -85,8 +85,6 @@ jobs:
           - image: "docker-molecule-images"
             tag: "rhel9"
           - image: "docker-molecule-images"
-            tag: "opensuse"
-          - image: "docker-molecule-images"
             tag: "opensuse-tumbleweed"
     steps:
       - name: checkout
