@@ -22,6 +22,9 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
+    - name: opensuse
+      versions:
+        - all
     - name: Kali
       versions:
         - all
