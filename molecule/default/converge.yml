@@ -1,3 +1,4 @@
+---
   - name: Converge
     hosts: all
   # This role installs packages using the `raw` module and needs to connect as

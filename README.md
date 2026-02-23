@@ -11,6 +11,7 @@ Prepare your system to be managed by Ansible.
 This example is taken from [`molecule/default/converge.yml`](https://github.com/buluma/ansible-role-bootstrap/blob/master/molecule/default/converge.yml) and is tested on each push, pull request and release.
 
 ```yaml
+---
   - name: Converge
     hosts: all
   # This role installs packages using the `raw` module and needs to connect as
@@ -34,6 +35,7 @@ Also see a [full explanation and example](https://buluma.github.io/how-to-use-th
 The default values for the variables are set in [`defaults/main.yml`](https://github.com/buluma/ansible-role-bootstrap/blob/master/defaults/main.yml):
 
 ```yaml
+---
 # defaults file for bootstrap
 
 # Do you want to wait for the host to be available?
