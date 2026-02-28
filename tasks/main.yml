@@ -25,7 +25,7 @@
     - bootstrap_os_family is not defined or bootstrap_distribution is not defined or bootstrap_distribution_major_version is not defined
 
 - name: Detect python3 version (raw)
-  ansible.builtin.raw: "python3 -c 'import sys; print(f\"{sys.version_info[0]}.{sys.version_info[1]}\")'"
+  ansible.builtin.raw: 'python3 -c ''import sys; print(f"{sys.version_info[0]}.{sys.version_info[1]}")'''
   args:
     executable: /bin/sh
   register: bootstrap_python3_version
