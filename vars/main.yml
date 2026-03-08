@@ -25,7 +25,8 @@ _bootstrap_packages:
   "Univention Corporate Server": python3 sudo gnupg python3-apt
 
 # Map the right set of packages, based on gathered bootstrap facts.
-bootstrap_packages: "{{ _bootstrap_packages[bootstrap_distribution ~'_'~ bootstrap_distribution_major_version]|default( _bootstrap_packages[bootstrap_distribution]
+bootstrap_packages:
+  "{{ _bootstrap_packages[bootstrap_distribution ~'_'~ bootstrap_distribution_major_version]|default( _bootstrap_packages[bootstrap_distribution]
   )|default( _bootstrap_packages[bootstrap_os_family] ) }}"
 
 _bootstrap_install:
@@ -49,7 +50,8 @@ _bootstrap_install:
     stdout_regex: "Nothing"
 
 # Map the right install command, based on gathered bootstrap facts.
-bootstrap_install: "{{ _bootstrap_install[bootstrap_distribution ~'_'~ bootstrap_distribution_major_version]|default( _bootstrap_install[bootstrap_distribution] )|default(
+bootstrap_install:
+  "{{ _bootstrap_install[bootstrap_distribution ~'_'~ bootstrap_distribution_major_version]|default( _bootstrap_install[bootstrap_distribution] )|default(
   _bootstrap_install[bootstrap_os_family] ) }}"
 
 # See URL for available OS families and search queries
@@ -93,12 +95,23 @@ bootstrap_os_family_map:
     - EulerOS
     - openEuler
     - AlmaLinux
-  Suse: [SLED, openSUSE Tumbleweed, openSUSE Leap, SLES_SAP, SUSE_LINUX, SLES, openSUSE, SuSE]
+  Suse:
+    [
+      SLED,
+      openSUSE Tumbleweed,
+      openSUSE Leap,
+      SLES_SAP,
+      SUSE_LINUX,
+      SLES,
+      openSUSE,
+      SuSE,
+    ]
 bootstrap_search:
   Archlinux: "Arch Linux"
   OracleLinux: "Oracle Linux"
   RedHat: "Red Hat"
 
 # Map the right set of packages, based on gathered ansible_facts.
-bootstrap_facts_packages: "{{ _bootstrap_packages[ansible_facts['distribution'] ~'_'~ ansible_facts['distribution_major_version']]|default( _bootstrap_packages[ansible_facts['distribution']]
+bootstrap_facts_packages:
+  "{{ _bootstrap_packages[ansible_facts['distribution'] ~'_'~ ansible_facts['distribution_major_version']]|default( _bootstrap_packages[ansible_facts['distribution']]
   )|default( _bootstrap_packages[ansible_facts['os_family']] ) }}"
