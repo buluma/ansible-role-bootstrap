@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-bootstrap/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v26.02.23...HEAD)
+
+**Merged pull requests:**
+
+- Bump docker/setup-buildx-action from 3 to 4 [\#179](https://github.com/buluma/ansible-role-bootstrap/pull/179) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v26.02.23](https://github.com/buluma/ansible-role-bootstrap/tree/v26.02.23) (2026-02-22)
 
 [Full Changelog](https://github.com/buluma/ansible-role-bootstrap/compare/v26.02.22...v26.02.23)
