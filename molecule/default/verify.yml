@@ -26,6 +26,7 @@
       # Add specific checks for Fedora to debug sudo issues
     - name: Check sudo configuration
       ansible.builtin.command:
+      changed_when: false
         cmd: "{{ item }}"
       loop:
         - "id"
