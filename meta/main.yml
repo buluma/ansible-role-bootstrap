@@ -22,6 +22,9 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - all
+    - name: Suse
+      versions:
+        - all
   galaxy_tags:
     - bootstrap
     - python
