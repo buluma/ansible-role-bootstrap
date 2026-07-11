@@ -9,7 +9,7 @@ on:
       - master
       - main
     paths:
-      - ".github/workflows/requirements2png.yml"
+      - '.github/workflows/requirements2png.yml'
   release:
     types:
       - published
@@ -36,7 +36,7 @@ jobs:
           git add requirements.dot requirements.png
           git commit -m "Add generated files"
       - name: save to png branch
-        uses: ad-m/github-push-action@v1
+        uses: ad-m/github-push-action@master
         with:
           directory: ${{ github.repository }}
           force: true
