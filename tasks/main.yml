@@ -34,7 +34,7 @@
   become: false
 
 - name: Ensure modern python on Enterprise Linux 8 (raw)
-  ansible.builtin.raw: "yum -y install python38 || yum -y install python39"
+  ansible.builtin.raw: "yum -y install python39 || yum -y install python38"
   args:
     executable: /bin/sh
   register: bootstrap_install_modern_python

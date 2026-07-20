@@ -1,0 +1,44 @@
+---
+- name: Prepare
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Install sudo if missing
+      ansible.builtin.raw: "{{ ansible_pkg_mgr | default('dnf') }} install -y sudo"
+      become: false
+      changed_when: false
+      failed_when: false
+
+    - name: Install python3 if missing
+      ansible.builtin.raw: >-
+        if [ -x /usr/bin/python3 ]; then exit 0; fi;
+        if command -v apt-get >/dev/null 2>&1; then apt-get update && apt-get install -y python3;
+        elif command -v dnf >/dev/null 2>&1; then dnf install -y python3;
+        elif command -v yum >/dev/null 2>&1; then yum install -y python3;
+        elif command -v zypper >/dev/null 2>&1; then zypper -n install python3;
+        else exit 1; fi
+      become: false
+      changed_when: false
+      failed_when: false
+
+    - name: Configure passwordless sudo
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers
+        state: present
+        regexp: '^%wheel'
+        line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+      become: true
+
+    - name: Fix PAM for containers (EL9)
+      ansible.builtin.raw: >-
+        if [ -f /etc/authselect/system-auth ]; then
+          authselect enable-feature with-mkhomedir 2>/dev/null || true;
+          sed -i 's/^#.*pam_sss.so.*/account     [default=bad=ignore success=ok] pam_permit.so/' /etc/authselect/system-auth 2>/dev/null || true;
+        fi;
+        echo "root" | passwd --stdin root 2>/dev/null || true
+      become: false
+      changed_when: false
+      failed_when: false
