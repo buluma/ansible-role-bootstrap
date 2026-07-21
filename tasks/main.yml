@@ -71,6 +71,18 @@
     - bootstrap_python_interpreter is defined
     - (bootstrap_python_interpreter.stdout | trim) | length > 0
 
+- name: Verify python interpreter works (raw)
+  ansible.builtin.raw: "{{ bootstrap_python_interpreter.stdout | trim }} -c 'import sys; print(sys.version)'"
+  register: bootstrap_python_verify
+  changed_when: false
+  failed_when: false
+  become: false
+  when:
+    - bootstrap_os_family | default('') == "RedHat"
+    - (bootstrap_distribution_major_version | default('0') | int) == 8
+    - bootstrap_python_interpreter is defined
+    - (bootstrap_python_interpreter.stdout | trim) | length > 0
+
 - name: Ensure modern python on Suse (raw)
   ansible.builtin.raw: >-
     zypper -n install python311 python311-xml ||
