@@ -35,8 +35,8 @@
 
 - name: Ensure modern python on Enterprise Linux 8 (raw)
   ansible.builtin.raw: >-
-    yum -y install python39 python39-pyyaml python39-jmespath python39-setuptools ||
-    yum -y install python38 python38-pyyaml python38-jmespath python38-setuptools
+    yum -y install python39 python39-pyyaml python39-setuptools ||
+    yum -y install python38 python38-pyyaml python38-setuptools
   args:
     executable: /bin/sh
   register: bootstrap_install_modern_python
