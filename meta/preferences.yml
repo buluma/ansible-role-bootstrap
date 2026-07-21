@@ -6,7 +6,6 @@ platforms:
     versions:
       - "10"
       - "9"
-      - "8"
   - name: Debian
     versions:
       - all
