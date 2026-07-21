@@ -33,10 +33,24 @@
   failed_when: false
   become: false
 
-- name: Ensure modern python on Enterprise Linux 8 (raw)
-  ansible.builtin.raw: >-
-    yum -y install python39 python39-pyyaml python39-setuptools ||
-    yum -y install python38 python38-pyyaml python38-setuptools
+- name: Ensure python3.9 on Enterprise Linux 8 (raw)
+  ansible.builtin.raw: yum -y install python39 python39-pyyaml python39-setuptools
+  args:
+    executable: /bin/sh
+  register: bootstrap_install_python39
+  until: bootstrap_install_python39.rc == 0
+  retries: 3
+  delay: 5
+  changed_when: bootstrap_install_python39.rc == 0
+  failed_when: false
+  become: false
+  when:
+    - bootstrap_os_family | default('') == "RedHat"
+    - (bootstrap_distribution_major_version | default('0') | int) == 8
+    - bootstrap_python3_version.rc != 0 or (bootstrap_python3_version.stdout | trim) is version('3.7', '<')
+
+- name: Fall back to python3.8 on Enterprise Linux 8 if python3.9 unavailable (raw)
+  ansible.builtin.raw: yum -y install python38 python38-pyyaml python38-setuptools
   args:
     executable: /bin/sh
   register: bootstrap_install_modern_python
@@ -46,7 +60,7 @@
   when:
     - bootstrap_os_family | default('') == "RedHat"
     - (bootstrap_distribution_major_version | default('0') | int) == 8
-    - bootstrap_python3_version.rc != 0 or (bootstrap_python3_version.stdout | trim) is version('3.7', '<')
+    - bootstrap_install_python39.rc | default(1) != 0
 
 - name: Select ansible python interpreter (Enterprise Linux 8)
   ansible.builtin.raw: >-
@@ -70,6 +84,19 @@
     - (bootstrap_distribution_major_version | default('0') | int) == 8
     - bootstrap_python_interpreter is defined
     - (bootstrap_python_interpreter.stdout | trim) | length > 0
+
+- name: Fail if Enterprise Linux 8 host lacks Python 3.9+
+  ansible.builtin.fail:
+    msg: >-
+      This host only has {{ bootstrap_python_interpreter.stdout | trim }}
+      available, but Ansible requires Python 3.9 or newer on managed nodes.
+      python39 failed to install after retries - check package repo
+      availability on this host.
+  when:
+    - bootstrap_os_family | default('') == "RedHat"
+    - (bootstrap_distribution_major_version | default('0') | int) == 8
+    - bootstrap_python_interpreter is defined
+    - (bootstrap_python_interpreter.stdout | trim) != '/usr/bin/python3.9'
 
 - name: Verify python interpreter works (raw)
   ansible.builtin.raw: "{{ bootstrap_python_interpreter.stdout | trim }} -c 'import sys; print(sys.version)'"
