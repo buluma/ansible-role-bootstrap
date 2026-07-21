@@ -4,20 +4,20 @@
 _bootstrap_packages:
   Alpine: python3 sudo
   Archlinux: python sudo
-  Debian: python3 sudo gnupg python3-apt
+  Debian: python3 sudo gnupg python3-apt python3-packaging
   Gentoo: python sudo gentoolkit
-  RedHat: python3 sudo
-  Suse: python3 python3-xml sudo
+  RedHat: python3 sudo python3-packaging
+  Suse: python3 python3-xml sudo python3-packaging
   Amazon: python sudo
   CentOS_7: python sudo
   Debian_8: python sudo gnupg
   Debian_9: python sudo gnupg
-  Debian_10: python3 sudo gnupg2
-  Debian_11: python3 sudo gnupg2
-  Debian_12: python3 sudo gnupg2
+  Debian_10: python3 sudo gnupg2 python3-packaging
+  Debian_11: python3 sudo gnupg2 python3-packaging
+  Debian_12: python3 sudo gnupg2 python3-packaging
   RedHat_7: python sudo
-  Fedora: python3 sudo python3-libdnf5 python3-rpm
-  "Univention Corporate Server": python3 sudo gnupg python3-apt
+  Fedora: python3 sudo python3-libdnf5 python3-rpm python3-packaging
+  "Univention Corporate Server": python3 sudo gnupg python3-apt python3-packaging
 
 # Map the right set of packages, based on gathered bootstrap facts.
 bootstrap_packages: "{{ _bootstrap_packages[bootstrap_distribution ~'_'~ bootstrap_distribution_major_version]|default( _bootstrap_packages[bootstrap_distribution]
