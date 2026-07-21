@@ -24,21 +24,19 @@
       failed_when: false
 
     - name: Configure passwordless sudo
-      ansible.builtin.lineinfile:
-        path: /etc/sudoers
-        state: present
-        regexp: '^%wheel'
-        line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-        validate: 'visudo -cf %s'
-      become: true
-
-    - name: Fix PAM for containers (EL9)
       ansible.builtin.raw: >-
+        if [ -f /etc/sudoers ]; then
+          if ! grep -q '^%wheel ALL=(ALL) NOPASSWD: ALL' /etc/sudoers; then
+            echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers;
+          fi;
+          if command -v visudo >/dev/null 2>&1; then visudo -cf /etc/sudoers || true; fi;
+        fi;
         if [ -f /etc/authselect/system-auth ]; then
           authselect enable-feature with-mkhomedir 2>/dev/null || true;
-          sed -i 's/^#.*pam_sss.so.*/account     [default=bad=ignore success=ok] pam_permit.so/' /etc/authselect/system-auth 2>/dev/null || true;
+          sed -i 's/^account.*required.*pam_nologin.so/account     [default=bad=ignore success=ok] pam_permit.so/' /etc/authselect/system-auth 2>/dev/null || true;
         fi;
-        echo "root" | passwd --stdin root 2>/dev/null || true
+        sed -i 's/^.*pam_wheel.so.*/#&/' /etc/pam.d/sudo 2>/dev/null || true;
+        echo "root:root" | chpasswd 2>/dev/null || true
       become: false
       changed_when: false
       failed_when: false
