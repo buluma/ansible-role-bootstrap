@@ -41,7 +41,7 @@
   until: bootstrap_install_python39.rc == 0
   retries: 3
   delay: 5
-  changed_when: bootstrap_install_python39.rc == 0
+  changed_when: bootstrap_install_python39.rc == 0 and 'Nothing to do' not in bootstrap_install_python39.stdout
   failed_when: false
   become: false
   when:
@@ -54,7 +54,7 @@
   args:
     executable: /bin/sh
   register: bootstrap_install_modern_python
-  changed_when: bootstrap_install_modern_python.rc == 0
+  changed_when: bootstrap_install_modern_python.rc == 0 and 'Nothing to do' not in bootstrap_install_modern_python.stdout
   failed_when: false
   become: false
   when:
