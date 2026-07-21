@@ -28,6 +28,53 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
     - role: buluma.bootstrap
 ```
 
+The machine needs to be prepared. In CI this is done using [`molecule/default/prepare.yml`](https://github.com/buluma/ansible-role-bootstrap/blob/master/molecule/default/prepare.yml):
+
+```yaml
+---
+- name: Prepare
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Install sudo if missing
+      ansible.builtin.raw: "{{ ansible_pkg_mgr | default('dnf') }} install -y sudo"
+      become: false
+      changed_when: false
+      failed_when: false
+
+    - name: Install python3 if missing
+      ansible.builtin.raw: >-
+        if [ -x /usr/bin/python3 ]; then exit 0; fi;
+        if command -v apt-get >/dev/null 2>&1; then apt-get update && apt-get install -y python3;
+        elif command -v dnf >/dev/null 2>&1; then dnf install -y python3;
+        elif command -v yum >/dev/null 2>&1; then yum install -y python3;
+        elif command -v zypper >/dev/null 2>&1; then zypper -n install python3;
+        else exit 1; fi
+      become: false
+      changed_when: false
+      failed_when: false
+
+    - name: Configure passwordless sudo
+      ansible.builtin.raw: >-
+        if [ -f /etc/sudoers ]; then
+          if ! grep -q '^%wheel ALL=(ALL) NOPASSWD: ALL' /etc/sudoers; then
+            echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers;
+          fi;
+          if command -v visudo >/dev/null 2>&1; then visudo -cf /etc/sudoers || true; fi;
+        fi;
+        if [ -f /etc/authselect/system-auth ]; then
+          authselect enable-feature with-mkhomedir 2>/dev/null || true;
+          sed -i 's/^account.*required.*pam_nologin.so/account     [default=bad=ignore success=ok] pam_permit.so/' /etc/authselect/system-auth 2>/dev/null || true;
+        fi;
+        sed -i 's/^.*pam_wheel.so.*/#&/' /etc/pam.d/sudo 2>/dev/null || true;
+        echo "root:root" | chpasswd 2>/dev/null || true
+      become: false
+      changed_when: false
+      failed_when: false
+```
+
 Also see a [full explanation and example](https://buluma.github.io/how-to-use-these-roles.html) on how to use these roles.
 
 ## [Role Variables](#role-variables)
@@ -52,13 +99,6 @@ bootstrap_become: false
 
 - pip packages listed in [requirements.txt](https://github.com/buluma/ansible-role-bootstrap/blob/master/requirements.txt).
 
-## [State of used roles](#state-of-used-roles)
-
-The following roles are used to prepare a system. You can prepare your system in another way.
-
-| Requirement | GitHub |
-|-------------|--------|
-|[buluma.bootstrap](https://galaxy.ansible.com/buluma/bootstrap)|[![Build Status GitHub](https://github.com/buluma/ansible-role-bootstrap/workflows/Ansible%20Molecule/badge.svg)](https://github.com/buluma/ansible-role-bootstrap/actions)|
 
 ## [Context](#context)
 
@@ -74,9 +114,9 @@ This role has been tested on these [container images](https://hub.docker.com/u/b
 
 |container|tags|
 |---------|----|
-|[EL](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
+|[EL](https://hub.docker.com/r/buluma/docker-molecule-images)|10, 9, 8|
 |[Debian](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
-|[Fedora](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
+|[Fedora](https://hub.docker.com/r/buluma/docker-molecule-images)|44, 43|
 |[Ubuntu](https://hub.docker.com/r/buluma/docker-molecule-images)|all|
 
 The minimum version of Ansible required is 2.12, tests have been done on:
